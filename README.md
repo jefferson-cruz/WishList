@@ -1,6 +1,6 @@
-# WishList (aplicação de lista de desejos)
+# WishList (aplicaÃ§Ã£o de lista de desejos)
 
-Uma aplicação .NET Core 2.2, que utiliza conceitos como Domain Driven Design e CQRS. 
+Uma aplicaÃ§Ã£o .NET Core 2.2, que utiliza conceitos como Domain Driven Design e CQRS. 
 
 Tecnologias utilizadas:
  - .NET Core 2.2
@@ -9,9 +9,9 @@ Tecnologias utilizadas:
  - AspNetCoreRateLimit (Nuget)
  - Docker
 
-## Instalação
+## Instalaï¿½ï¿½o
 
-Para facilitar, você pode pode rodar o comando ```docker-compose``` do Docker para subir o SQL Server e o ElasticSearch. Caso você não tenha o Docker, instale os componentes separadamente e no arquivo ```appsettings.json``` edite as ```ConnectionStrings``` WishList e WishListIndex (SQL Server e ElasticSearch respectivamente)
+Para facilitar, vocÃª pode pode rodar o comando ```docker-compose``` do Docker para subir o SQL Server e o ElasticSearch. Caso vocÃª nÃ£o tenha o Docker, instale os componentes separadamente e no arquivo ```appsettings.json``` edite as ```ConnectionStrings``` WishList e WishListIndex (SQL Server e ElasticSearch respectivamente)
 
 ```bash
 docker-compose up
@@ -21,12 +21,12 @@ docker-compose up
 
 Execute o projeto WishList no Visual Studio ou Visual Studio Code. E utilize o Postman ou outro parecido para interagir com a API.
 
-A aplicação possui os seguintes endpoints:
+A aplicaÃ§Ã£o possui os seguintes endpoints:
 - api/users: [GET|POST]
 - api/products: [GET|POST]
 - api/wishes: [GET|POST|DELETE]
 
-Todos os métodos GET possuem paginação (exemplos):
+Todos os mÃ©todos GET possuem paginaÃ§Ã£oo (exemplos):
 - api/users?page=1&pageSize=3
 - api/products?page=1&pageSize=3
 - api/wishes?page=1&pageSize=3

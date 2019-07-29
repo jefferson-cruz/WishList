@@ -1,0 +1,6 @@
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Models\bin\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Core.Models.deps.json
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Models\bin\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Core.Models.dll
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Models\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Core.Models.csproj.CoreCompileInputs.cache
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Models\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Core.Models.AssemblyInfoInputs.cache
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Models\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Core.Models.AssemblyInfo.cs
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Models\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Core.Models.csprojAssemblyReference.cache

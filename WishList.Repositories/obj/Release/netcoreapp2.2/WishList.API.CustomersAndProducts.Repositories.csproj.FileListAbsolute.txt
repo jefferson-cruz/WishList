@@ -1,0 +1,12 @@
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Repositories\bin\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Core.Repositories.deps.json
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Repositories\bin\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Core.Repositories.dll
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Repositories\bin\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Core.Repositories.pdb
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Repositories\bin\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Domain.dll
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Repositories\bin\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Domain.pdb
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Repositories\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Repositories.csprojAssemblyReference.cache
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Repositories\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Repositories.csproj.CoreCompileInputs.cache
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Repositories\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Repositories.AssemblyInfoInputs.cache
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Repositories\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Repositories.AssemblyInfo.cs
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Repositories\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Repositories.csproj.CopyComplete
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Repositories\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Core.Repositories.dll
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Repositories\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Core.Repositories.pdb

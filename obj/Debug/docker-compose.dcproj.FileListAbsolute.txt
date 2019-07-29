@@ -1,0 +1,2 @@
+D:\LuisaLabs\WishList\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache

@@ -1,0 +1,16 @@
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Services\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Services.csprojAssemblyReference.cache
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Services\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Services.csproj.CoreCompileInputs.cache
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Services\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Services.AssemblyInfoInputs.cache
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Services\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Services.AssemblyInfo.cs
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Services\bin\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Services.deps.json
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Services\bin\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Services.dll
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Services\bin\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Services.pdb
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Services\bin\Release\netcoreapp2.2\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Services\bin\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Domain.dll
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Services\bin\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Models.dll
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Services\bin\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Domain.pdb
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Services\bin\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Models.pdb
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Services\bin\Release\netcoreapp2.2\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Services\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Services.csproj.CopyComplete
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Services\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Services.dll
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Services\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Services.pdb

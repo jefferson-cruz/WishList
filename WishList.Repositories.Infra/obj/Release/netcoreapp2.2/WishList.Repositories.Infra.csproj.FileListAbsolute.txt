@@ -1,0 +1,14 @@
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.Repositories.Infra\bin\Release\netcoreapp2.2\WishList.Repositories.Infra.deps.json
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.Repositories.Infra\bin\Release\netcoreapp2.2\WishList.Repositories.Infra.dll
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.Repositories.Infra\bin\Release\netcoreapp2.2\WishList.Repositories.Infra.pdb
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.Repositories.Infra\bin\Release\netcoreapp2.2\WishList.Domain.dll
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.Repositories.Infra\bin\Release\netcoreapp2.2\WishList.Repositories.dll
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.Repositories.Infra\bin\Release\netcoreapp2.2\WishList.Repositories.pdb
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.Repositories.Infra\bin\Release\netcoreapp2.2\WishList.Domain.pdb
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.Repositories.Infra\obj\Release\netcoreapp2.2\WishList.Repositories.Infra.csprojAssemblyReference.cache
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.Repositories.Infra\obj\Release\netcoreapp2.2\WishList.Repositories.Infra.csproj.CoreCompileInputs.cache
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.Repositories.Infra\obj\Release\netcoreapp2.2\WishList.Repositories.Infra.AssemblyInfoInputs.cache
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.Repositories.Infra\obj\Release\netcoreapp2.2\WishList.Repositories.Infra.AssemblyInfo.cs
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.Repositories.Infra\obj\Release\netcoreapp2.2\WishList.Repositories.Infra.csproj.CopyComplete
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.Repositories.Infra\obj\Release\netcoreapp2.2\WishList.Repositories.Infra.dll
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.Repositories.Infra\obj\Release\netcoreapp2.2\WishList.Repositories.Infra.pdb

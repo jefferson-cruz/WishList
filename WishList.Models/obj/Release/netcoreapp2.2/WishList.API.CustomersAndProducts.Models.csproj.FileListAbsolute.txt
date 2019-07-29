@@ -1,0 +1,12 @@
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Models\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Models.csprojAssemblyReference.cache
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Models\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Models.csproj.CoreCompileInputs.cache
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Models\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Models.AssemblyInfoInputs.cache
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Models\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Models.AssemblyInfo.cs
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Models\bin\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Models.deps.json
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Models\bin\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Models.dll
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Models\bin\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Models.pdb
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Models\bin\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Domain.dll
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Models\bin\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Domain.pdb
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Models\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Models.csproj.CopyComplete
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Models\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Models.dll
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Models\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Models.pdb

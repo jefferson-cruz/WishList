@@ -1,0 +1,7 @@
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Repositories.ReadOnly\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Core.Repositories.ReadOnly.csprojAssemblyReference.cache
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Repositories.ReadOnly\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Core.Repositories.ReadOnly.csproj.CoreCompileInputs.cache
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Repositories.ReadOnly\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Core.Repositories.ReadOnly.AssemblyInfoInputs.cache
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Repositories.ReadOnly\obj\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Core.Repositories.ReadOnly.AssemblyInfo.cs
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Repositories.ReadOnly\bin\Release\netcoreapp2.2\System.Data.SqlClient.dll
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Repositories.ReadOnly\bin\Release\netcoreapp2.2\WishList.API.CustomersAndProducts.Core.Models.dll
+C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.API.CustomersAndProducts.Core.Repositories.ReadOnly\bin\Release\netcoreapp2.2\System.Data.SqlClient.xml

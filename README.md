@@ -9,7 +9,7 @@ Tecnologias utilizadas:
  - AspNetCoreRateLimit (Nuget)
  - Docker
 
-## Instala��o
+## Instalação
 
 Para facilitar, você pode pode rodar o comando ```docker-compose``` do Docker para subir o SQL Server e o ElasticSearch. Caso você não tenha o Docker, instale os componentes separadamente e no arquivo ```appsettings.json``` edite as ```ConnectionStrings``` WishList e WishListIndex (SQL Server e ElasticSearch respectivamente)
 

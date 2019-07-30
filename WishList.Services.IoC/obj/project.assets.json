@@ -4479,11 +4479,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jfcruz\\source\\repos\\LuisaLabs\\WishList\\WishList.Services.IoC\\WishList.Services.IoC.csproj",
+      "projectUniqueName": "C:\\Users\\jfcruz\\Desktop\\Projetos\\WishList\\WishList.Services.IoC\\WishList.Services.IoC.csproj",
       "projectName": "WishList.Services.IoC",
-      "projectPath": "C:\\Users\\jfcruz\\source\\repos\\LuisaLabs\\WishList\\WishList.Services.IoC\\WishList.Services.IoC.csproj",
+      "projectPath": "C:\\Users\\jfcruz\\Desktop\\Projetos\\WishList\\WishList.Services.IoC\\WishList.Services.IoC.csproj",
       "packagesPath": "C:\\Users\\jfcruz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jfcruz\\source\\repos\\LuisaLabs\\WishList\\WishList.Services.IoC\\obj\\",
+      "outputPath": "C:\\Users\\jfcruz\\Desktop\\Projetos\\WishList\\WishList.Services.IoC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -4503,8 +4503,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\jfcruz\\source\\repos\\LuisaLabs\\WishList\\WishList.Services\\WishList.Services.csproj": {
-              "projectPath": "C:\\Users\\jfcruz\\source\\repos\\LuisaLabs\\WishList\\WishList.Services\\WishList.Services.csproj"
+            "C:\\Users\\jfcruz\\Desktop\\Projetos\\WishList\\WishList.Services\\WishList.Services.csproj": {
+              "projectPath": "C:\\Users\\jfcruz\\Desktop\\Projetos\\WishList\\WishList.Services\\WishList.Services.csproj"
             }
           }
         }

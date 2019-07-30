@@ -55,6 +55,15 @@ namespace WishList.Services
 
                 await indexService.IndexDocumentAsync(model);
 
+                if (indexService.HasNotifications)
+                {
+                    AddNotifications(indexService.Notifications);
+
+                    await Rollback(user);
+
+                    return null;
+                }
+
                 return model;
             }
             catch (Exception ex)
@@ -65,8 +74,10 @@ namespace WishList.Services
             }
         }
 
-        private void ExecuteRollback(User user)
+        private async Task Rollback(User user)
         {
+            await this.indexService.DeleteDocumentAsync(user.Id);
+
             this.userRepository.Remove(user);
 
             this.unitOfWork.Save();

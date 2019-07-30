@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using WishList.Controllers;
 using WishList.Repositories.ReadOnly.Interfaces;
@@ -33,7 +32,7 @@ namespace WishList.API.CustomersAndProducts.Controllers
             var model = await this.userQueryServiceRepository.GetById(id);
 
             if (model == null)
-                BadRequest();
+                NotFound();
 
             return Ok();
         }

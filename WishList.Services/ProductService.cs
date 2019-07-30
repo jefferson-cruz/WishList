@@ -13,20 +13,20 @@ namespace WishList.Services
 {
     public class ProductService : BaseService, IProductService
     {
+        private readonly IIndexService<ProductModel> indexService;
         private readonly IProductRepository productRepository;
         private readonly IProductQueryRepository productQueryRepository;
-        private readonly IIndexService<ProductModel> indexService;
         private readonly IUnitOfWork unitOfWork;
 
         public ProductService(
+            IIndexService<ProductModel> indexService,
             IProductRepository productRepository,
             IProductQueryRepository productQueryRepository,
-            IIndexService<ProductModel> indexService,
             IUnitOfWork unitOfWork)
         {
+            this.indexService = indexService;
             this.productRepository = productRepository;
             this.productQueryRepository = productQueryRepository;
-            this.indexService = indexService;
             this.unitOfWork = unitOfWork;
         }
 
@@ -55,6 +55,15 @@ namespace WishList.Services
 
                 await indexService.IndexDocumentAsync(model);
 
+                if (indexService.HasNotifications)
+                {
+                    AddNotifications(indexService.Notifications);
+
+                    await Rollback(product);
+
+                    return null;
+                }
+
                 return model;
             }
             catch (Exception ex)
@@ -63,6 +72,15 @@ namespace WishList.Services
 
                 return null;
             }
+        }
+
+        private async Task Rollback(Product product)
+        {
+            await this.indexService.DeleteDocumentAsync(product.Id);
+
+            this.productRepository.Remove(product);
+
+            this.unitOfWork.Save();
         }
     }
 }

@@ -15,11 +15,8 @@ namespace WishList.Shared.Notify
 
         public bool HasNoNotification => !HasNotification;
 
-        public void AddNotification(string message) 
-        {
-            this.notifications.Add(new Notification(message));
-        }
-
+        public void AddNotification(string message) => this.notifications.Add(new Notification(message));
+    
         public void AddNotification<TNotification>(string message) where TNotification : Notification
         {
             this.notifications.Add((TNotification)Activator.CreateInstance(typeof(TNotification), message));

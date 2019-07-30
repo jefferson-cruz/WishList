@@ -4,10 +4,10 @@ using WishList.Services.Models.Common;
 
 namespace WishList.Services.Interfaces
 {
-    public interface IIndexService<TModel> where TModel : class
+    public interface IIndexService<TModel> : IBaseService where TModel : class
     {
-        Task IndexDocumentAsync(TModel model, string indexName = null);
+        Task IndexDocumentAsync(TModel model);
         Task UpdateDocumentAsync(int id, TModel model);
-        Task DeleteDocumentAsync(int id, TModel model);
+        Task DeleteDocumentAsync(int id);
     }
 }

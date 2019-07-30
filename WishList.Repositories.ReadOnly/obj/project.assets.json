@@ -4439,11 +4439,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jfcruz\\source\\repos\\LuisaLabs\\WishList\\WishList.Repositories.ReadOnly\\WishList.Repositories.ReadOnly.csproj",
+      "projectUniqueName": "C:\\Users\\jfcruz\\Desktop\\Projetos\\WishList\\WishList.Repositories.ReadOnly\\WishList.Repositories.ReadOnly.csproj",
       "projectName": "WishList.Repositories.ReadOnly",
-      "projectPath": "C:\\Users\\jfcruz\\source\\repos\\LuisaLabs\\WishList\\WishList.Repositories.ReadOnly\\WishList.Repositories.ReadOnly.csproj",
+      "projectPath": "C:\\Users\\jfcruz\\Desktop\\Projetos\\WishList\\WishList.Repositories.ReadOnly\\WishList.Repositories.ReadOnly.csproj",
       "packagesPath": "C:\\Users\\jfcruz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jfcruz\\source\\repos\\LuisaLabs\\WishList\\WishList.Repositories.ReadOnly\\obj\\",
+      "outputPath": "C:\\Users\\jfcruz\\Desktop\\Projetos\\WishList\\WishList.Repositories.ReadOnly\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -4463,14 +4463,14 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\jfcruz\\source\\repos\\LuisaLabs\\WishList\\WishList.Models\\WishList.Models.csproj": {
-              "projectPath": "C:\\Users\\jfcruz\\source\\repos\\LuisaLabs\\WishList\\WishList.Models\\WishList.Models.csproj"
+            "C:\\Users\\jfcruz\\Desktop\\Projetos\\WishList\\WishList.Models\\WishList.Models.csproj": {
+              "projectPath": "C:\\Users\\jfcruz\\Desktop\\Projetos\\WishList\\WishList.Models\\WishList.Models.csproj"
             },
-            "C:\\Users\\jfcruz\\source\\repos\\LuisaLabs\\WishList\\WishList.Repositories.Indexer\\WishList.Repositories.Index.csproj": {
-              "projectPath": "C:\\Users\\jfcruz\\source\\repos\\LuisaLabs\\WishList\\WishList.Repositories.Indexer\\WishList.Repositories.Index.csproj"
+            "C:\\Users\\jfcruz\\Desktop\\Projetos\\WishList\\WishList.Repositories.Indexer\\WishList.Repositories.Index.csproj": {
+              "projectPath": "C:\\Users\\jfcruz\\Desktop\\Projetos\\WishList\\WishList.Repositories.Indexer\\WishList.Repositories.Index.csproj"
             },
-            "C:\\Users\\jfcruz\\source\\repos\\LuisaLabs\\WishList\\WishList.Repositories\\WishList.Repositories.csproj": {
-              "projectPath": "C:\\Users\\jfcruz\\source\\repos\\LuisaLabs\\WishList\\WishList.Repositories\\WishList.Repositories.csproj"
+            "C:\\Users\\jfcruz\\Desktop\\Projetos\\WishList\\WishList.Repositories\\WishList.Repositories.csproj": {
+              "projectPath": "C:\\Users\\jfcruz\\Desktop\\Projetos\\WishList\\WishList.Repositories\\WishList.Repositories.csproj"
             }
           }
         }

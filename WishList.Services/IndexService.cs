@@ -1,11 +1,13 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using WishList.Repositories.Index.Interfaces;
 using WishList.Services.Interfaces;
+using WishList.Shared.Exception;
 using WishList.Shared.Notify.Notifications;
 
 namespace WishList.Services
 {
-    public class IndexService<TModel> : IIndexService<TModel> where TModel : class
+    public class IndexService<TModel> : BaseService, IIndexService<TModel> where TModel : class
     {
         private readonly IIndexRepository<TModel> indexRepository;
 
@@ -14,19 +16,40 @@ namespace WishList.Services
             this.indexRepository = indexRepository;
         }
 
-        public async Task IndexDocumentAsync(TModel model, string indexName = null)
+        public async Task IndexDocumentAsync(TModel model)
         {
-            await this.indexRepository.IndexDocumentAsync(model, indexName);
+            try
+            {
+                await this.indexRepository.IndexDocumentAsync(model);
+            }
+            catch (Exception ex)
+            {
+                AddNotification<Failure>(ex.GetExceptionMessages());
+            }
         }
 
         public async Task UpdateDocumentAsync(int id, TModel model)
         {
-            await this.indexRepository.UpdateDocumentAsync(id, model);
+            try
+            {
+                await this.indexRepository.UpdateDocumentAsync(id, model);
+            }
+            catch (Exception ex)
+            {
+                AddNotification<Failure>(ex.GetExceptionMessages());
+            }
         }
 
-        public async Task DeleteDocumentAsync(int id, TModel model)
+        public async Task DeleteDocumentAsync(int id)
         {
-            await this.indexRepository.DeleteDocumentAsync(id, model);
+            try
+            {
+                await this.indexRepository.DeleteDocumentAsync(id);
+            }
+            catch (Exception ex)
+            {
+                AddNotification<Failure>(ex.GetExceptionMessages());
+            }
         }
     }
 }

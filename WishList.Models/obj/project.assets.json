@@ -3096,11 +3096,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jfcruz\\source\\repos\\LuisaLabs\\WishList\\WishList.Models\\WishList.Models.csproj",
+      "projectUniqueName": "C:\\Users\\jfcruz\\Desktop\\Projetos\\WishList\\WishList.Models\\WishList.Models.csproj",
       "projectName": "WishList.Models",
-      "projectPath": "C:\\Users\\jfcruz\\source\\repos\\LuisaLabs\\WishList\\WishList.Models\\WishList.Models.csproj",
+      "projectPath": "C:\\Users\\jfcruz\\Desktop\\Projetos\\WishList\\WishList.Models\\WishList.Models.csproj",
       "packagesPath": "C:\\Users\\jfcruz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jfcruz\\source\\repos\\LuisaLabs\\WishList\\WishList.Models\\obj\\",
+      "outputPath": "C:\\Users\\jfcruz\\Desktop\\Projetos\\WishList\\WishList.Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -3120,8 +3120,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\jfcruz\\source\\repos\\LuisaLabs\\WishList\\WishList.Domain\\WishList.Domain.csproj": {
-              "projectPath": "C:\\Users\\jfcruz\\source\\repos\\LuisaLabs\\WishList\\WishList.Domain\\WishList.Domain.csproj"
+            "C:\\Users\\jfcruz\\Desktop\\Projetos\\WishList\\WishList.Domain\\WishList.Domain.csproj": {
+              "projectPath": "C:\\Users\\jfcruz\\Desktop\\Projetos\\WishList\\WishList.Domain\\WishList.Domain.csproj"
             }
           }
         }

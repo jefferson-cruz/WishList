@@ -15,16 +15,17 @@ namespace WishList.Services
 {
     public class WishService : BaseService, IWishService
     {
-        private readonly IWishRepository wishRepository;
+        
         private readonly IIndexService<WishModel> indexService;
+        private readonly IWishRepository wishRepository;
         private readonly IWishQueryRepository wishQueryRepository;
         private readonly IUserQueryRepository userQueryRepository;
         private readonly IProductQueryRepository productQueryRepository;
         private readonly IUnitOfWork unitOfWork;
 
         public WishService(
-            IWishRepository wishRepository,
             IIndexService<WishModel> indexService,
+            IWishRepository wishRepository,
             IWishQueryRepository wishQueryRepository,
             IUserQueryRepository userQueryRepository,
             IProductQueryRepository productQueryRepository,
@@ -60,6 +61,32 @@ namespace WishList.Services
             {
                 AddNotification<Failure>(ex.GetExceptionMessages());
             }
+        }
+
+        private async Task RollbackInsert(int userId, IEnumerable<WishCreationModel> wishCreationModel)
+        {
+            await this.indexService.DeleteDocumentAsync(userId);
+
+            this.wishRepository.Remove(userId);
+
+            this.unitOfWork.Save();
+        }
+
+        private async Task RollbackUpdate(WishModel wishModel, IEnumerable<WishCreationModel> wishCreationModel)
+        {
+            var wish = await this.wishQueryRepository.GetByUser(wishModel.Id);
+
+            foreach(var wishItem in wishCreationModel)
+            {
+                var toRemove = wish.Products.Find(x => x.Id == wishItem.IdProduct);
+                wish.Products.Remove(toRemove);
+            }
+
+            await this.indexService.UpdateDocumentAsync(wish.Id, wish);
+
+            this.wishRepository.Remove(wishModel.Id, wishCreationModel.Select(x => x.IdProduct));
+
+            this.unitOfWork.Save();
         }
 
         public async Task Remove(int userId, int productId)
@@ -104,7 +131,7 @@ namespace WishList.Services
         private async Task UpdateOrDeleteWishListInIndexService(WishModel wish)
         {
             if (!wish.Products.Any())
-                await this.indexService.DeleteDocumentAsync(wish.Id, wish);
+                await this.indexService.DeleteDocumentAsync(wish.Id);
             else
                 await this.indexService.UpdateDocumentAsync(wish.Id, wish);
         }
@@ -169,17 +196,10 @@ namespace WishList.Services
         private async Task Insert(int userId, IEnumerable<WishCreationModel> wishCreationModel)
         {
             foreach (var wishItem in wishCreationModel)
-            {
                 this.wishRepository.Add(Wish.Create(userId, wishItem.IdProduct));
-            }
 
             unitOfWork.Save();
 
-            await PrepareToInsertInIndexService(userId, wishCreationModel);
-        }
-
-        private async Task PrepareToInsertInIndexService(int userId, IEnumerable<WishCreationModel> wishCreationModel)
-        {
             var products = new List<ProductModel>();
 
             foreach (var i in wishCreationModel)
@@ -190,6 +210,13 @@ namespace WishList.Services
                 Id = userId,
                 Products = products,
             });
+
+            if (indexService.HasNotifications)
+            {
+                AddNotifications(indexService.Notifications);
+
+                await RollbackInsert(userId, wishCreationModel);
+            }
         }
 
         private async Task Update(WishModel wish, IEnumerable<WishCreationModel> wishCreationModel)
@@ -199,17 +226,10 @@ namespace WishList.Services
             if (IfWishItemsExistsInWishList(wish, productsIds)) return;
 
             foreach (var wishItem in productsIds)
-            {
                 this.wishRepository.Add(Wish.Create(wish.Id, wishItem));
-            }
 
             unitOfWork.Save();
 
-            await PrepareToUpdateInIndexService(wish, wishCreationModel);
-        }
-
-        private async Task PrepareToUpdateInIndexService(WishModel wish, IEnumerable<WishCreationModel> wishCreationModel)
-        {
             var products = new List<ProductModel>();
 
             foreach (var i in wishCreationModel)
@@ -218,6 +238,13 @@ namespace WishList.Services
             wish.Products.AddRange(products);
 
             await this.indexService.UpdateDocumentAsync(wish.Id, wish);
+
+            if (indexService.HasNotifications)
+            {
+                AddNotifications(indexService.Notifications);
+
+                await RollbackUpdate(wish, wishCreationModel);
+            }
         }
     }
 }

@@ -18,7 +18,7 @@ namespace WishList.Repositories.Index
         /// <summary>
         /// Suggested index name
         /// </summary>
-        public string IndexName => typeof(TModel).Name.ToLower();
+        public string IndexName => this.context.GetIndexName<TModel>();
 
         /// <summary>
         /// Add document
@@ -26,13 +26,19 @@ namespace WishList.Repositories.Index
         /// <param name="model"></param>
         /// <param name="idModel"></param>
         /// <param name="indexName"></param>
-        public async Task<bool> IndexDocumentAsync(TModel model, string indexName = null)
+        public async Task<bool> IndexDocumentAsync(TModel model)
         {
-            var response = await this.context.IndexAsync(new IndexRequest<TModel>(model, string.IsNullOrEmpty(indexName) ? this.IndexName : indexName));
+            var response = await this.context.IndexAsync(new IndexRequest<TModel>(model, this.IndexName));
 
             return response.IsValid;
         }
 
+        /// <summary>
+        /// Update document
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public async Task<bool> UpdateDocumentAsync(int id, TModel model)
         {
             var response = await this.context.UpdateAsync(DocumentPath<object>.Id(id), x => x
@@ -45,24 +51,13 @@ namespace WishList.Repositories.Index
             return response.IsValid;
         }
 
-        public async Task CreateIndexIfNotExistsAsync(TModel model)
-        {
-            if (!await this.context.IndexExists<TModel>())
-                await this.context.CreateIndex<TModel>();
-        }
-
-        public async Task<IEnumerable<TModel>> GetAllDocuments(int offset, int pageSize)
-        {
-            var search = await context.SearchAsync<TModel>(x => x
-                .From(offset)
-                .Size(pageSize)
-                .Query(q => q.MatchAll())
-                .Index(this.context.GetIndexName<TModel>()));
-
-            return search.Documents;
-        }
-
-        public async Task DeleteDocumentAsync(int id, TModel model)
+        /// <summary>
+        /// Delete document
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public async Task DeleteDocumentAsync(int id)
         {
             await context.DeleteAsync(DocumentPath<TModel>.Id(id), x => x
                 .Index(IndexName)

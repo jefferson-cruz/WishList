@@ -28,6 +28,21 @@ namespace WishList.Domain.Repositories
             this.context.Wishes.Remove(wish);
         }
 
+        public void Remove(int userId)
+        {
+            var wishes = this.context.Wishes.Where(x => x.UserId == userId);
+
+            this.context.Wishes.RemoveRange(wishes);
+        }
+
+        public void Remove(int userId, IEnumerable<int> productsIds)
+        {
+            productsIds.Select(productId =>
+                this.context.Wishes.Remove(
+                    this.context.Wishes.First(wish=> wish.UserId == userId && wish.ProductId == productId)
+                )
+            );
+        }
 
         public void Update(IDictionary<int,int> dataToUpdate)
         {

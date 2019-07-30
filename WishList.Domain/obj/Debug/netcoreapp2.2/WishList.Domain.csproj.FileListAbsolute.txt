@@ -26,3 +26,17 @@ D:\LuisaLabs\WishList\WishList.Domain\obj\Debug\netcoreapp2.2\WishList.Domain.As
 D:\LuisaLabs\WishList\WishList.Domain\obj\Debug\netcoreapp2.2\WishList.Domain.csproj.CopyComplete
 D:\LuisaLabs\WishList\WishList.Domain\obj\Debug\netcoreapp2.2\WishList.Domain.dll
 D:\LuisaLabs\WishList\WishList.Domain\obj\Debug\netcoreapp2.2\WishList.Domain.pdb
+C:\Users\jfcruz\Desktop\Projetos\WishList\WishList.Domain\bin\Debug\netcoreapp2.2\WishList.Domain.deps.json
+C:\Users\jfcruz\Desktop\Projetos\WishList\WishList.Domain\bin\Debug\netcoreapp2.2\WishList.Domain.dll
+C:\Users\jfcruz\Desktop\Projetos\WishList\WishList.Domain\bin\Debug\netcoreapp2.2\WishList.Domain.pdb
+C:\Users\jfcruz\Desktop\Projetos\WishList\WishList.Domain\bin\Debug\netcoreapp2.2\WishList.Shared.dll
+C:\Users\jfcruz\Desktop\Projetos\WishList\WishList.Domain\bin\Debug\netcoreapp2.2\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\jfcruz\Desktop\Projetos\WishList\WishList.Domain\bin\Debug\netcoreapp2.2\WishList.Shared.pdb
+C:\Users\jfcruz\Desktop\Projetos\WishList\WishList.Domain\bin\Debug\netcoreapp2.2\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\jfcruz\Desktop\Projetos\WishList\WishList.Domain\obj\Debug\netcoreapp2.2\WishList.Domain.csprojAssemblyReference.cache
+C:\Users\jfcruz\Desktop\Projetos\WishList\WishList.Domain\obj\Debug\netcoreapp2.2\WishList.Domain.csproj.CoreCompileInputs.cache
+C:\Users\jfcruz\Desktop\Projetos\WishList\WishList.Domain\obj\Debug\netcoreapp2.2\WishList.Domain.AssemblyInfoInputs.cache
+C:\Users\jfcruz\Desktop\Projetos\WishList\WishList.Domain\obj\Debug\netcoreapp2.2\WishList.Domain.AssemblyInfo.cs
+C:\Users\jfcruz\Desktop\Projetos\WishList\WishList.Domain\obj\Debug\netcoreapp2.2\WishList.Domain.csproj.CopyComplete
+C:\Users\jfcruz\Desktop\Projetos\WishList\WishList.Domain\obj\Debug\netcoreapp2.2\WishList.Domain.dll
+C:\Users\jfcruz\Desktop\Projetos\WishList\WishList.Domain\obj\Debug\netcoreapp2.2\WishList.Domain.pdb

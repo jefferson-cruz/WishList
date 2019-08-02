@@ -19,24 +19,4 @@ services:
     ports:
     - published: 11433
       target: 1433
-  wishlist:
-    build:
-      context: C:\Users\jfcruz\source\repos\LuisaLabs\WishList
-      dockerfile: WishList/Dockerfile
-    depends_on:
-    - elasticsearch
-    - sqlserver
-    environment:
-      ASPNETCORE_ENVIRONMENT: Development
-      ASPNETCORE_HTTPS_PORT: '44343'
-      ASPNETCORE_URLS: https://+:443;http://+:80
-    image: wishlist
-    ports:
-    - published: 57610
-      target: 80
-    - published: 44343
-      target: 443
-    volumes:
-    - C:\Users\jfcruz\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
-    - C:\Users\jfcruz\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
 version: '3.4'

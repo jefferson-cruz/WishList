@@ -43,9 +43,9 @@ namespace WishList.Services
 
                 var product = Product.Create(productModel.Name);
 
-                AddNotifications(product.Notifications);
+                AddResutls(product.Results);
 
-                if (HasNotification) return null;
+                if (HasResults) return null;
 
                 this.productRepository.Add(product);
 
@@ -55,9 +55,9 @@ namespace WishList.Services
 
                 await indexService.IndexDocumentAsync(model);
 
-                if (indexService.HasNotifications)
+                if (indexService.HasResults)
                 {
-                    AddNotifications(indexService.Notifications);
+                    AddNotifications(indexService.Results);
 
                     await Rollback(product);
 

@@ -21,13 +21,13 @@ namespace WishList.API.CustomersAndProducts.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> ListProducts([FromQuery] PaginationModel paginationModel)
+        public async Task<IActionResult> List([FromQuery] PaginationModel paginationModel)
         {
             return Ok(await this.productQueryRepository.GetAll(paginationModel));
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetProduct(int id)
+        public async Task<IActionResult> Get(int id)
         {
             var model = await this.productQueryRepository.GetById(id);
 
@@ -38,17 +38,17 @@ namespace WishList.API.CustomersAndProducts.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateProduct([FromBody] ProductCreationModel productModel)
+        public async Task<IActionResult> Create([FromBody] ProductCreationModel productModel)
         {
             if (productModel == null)
                 return BadRequest();
 
             var model = await this.productService.Create(productModel);
 
-            if (productService.HasNotifications)
-                return CreateResponse(productService.Notifications);
+            if (productService.HasResults)
+                return CreateResponse(productService.Results);
                         
-            return CreatedAtAction(nameof(GetProduct), new { id = model.Id }, model);
+            return CreatedAtAction(nameof(Get), new { id = model.Id }, model);
         }
     }
 }

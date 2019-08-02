@@ -37,8 +37,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WishList.Repositories.Index
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WishList.Repositories.Seed", "WishList.Repositories.Seed\WishList.Repositories.Seed.csproj", "{47BD1D28-0C88-427F-BCB6-695DCD064232}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "7. Resources", "7. Resources", "{59CE2303-3E89-49B0-81E6-8CB7A6A971E5}"
-EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{9206BFD1-95E5-4ADB-8DB8-B2135FC76B60}"
 EndProject
 Global

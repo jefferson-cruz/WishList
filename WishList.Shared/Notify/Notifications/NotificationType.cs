@@ -2,10 +2,11 @@
 {
     public enum NotificationType
     {
-        Conflict,
-        Failure,
-        NotFound,
-        Notification,
-        Violation
+        Conflict = 409,
+        Failure = 500,
+        NotFound = 404,
+        Created = 201,
+        Ok = 200,
+        Violation = 400
     }
 }

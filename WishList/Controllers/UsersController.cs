@@ -21,13 +21,13 @@ namespace WishList.API.CustomersAndProducts.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> ListUsers([FromQuery] PaginationModel paginationModel)
+        public async Task<IActionResult> List([FromQuery] PaginationModel paginationModel)
         {
             return Ok(await this.userQueryServiceRepository.GetAll(paginationModel));
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetUser(int id)
+        public async Task<IActionResult> Get(int id)
         {
             var model = await this.userQueryServiceRepository.GetById(id);
 
@@ -38,17 +38,17 @@ namespace WishList.API.CustomersAndProducts.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateCustomer([FromBody] UserCreationModel customer)
+        public async Task<IActionResult> Create([FromBody] UserCreationModel customer)
         {
             if (customer == null)
                 return BadRequest();
 
             var model = await  this.userService.Create(customer);
 
-            if (this.userService.HasNotifications)
-                return CreateResponse(userService.Notifications);
+            if (this.userService.HasResults)
+                return CreateResponse(userService.Results);
 
-            return CreatedAtAction(nameof(GetUser), new { id = model.Id }, null);
+            return CreatedAtAction(nameof(Get), new { id = model.Id }, null);
         }
     }
 }

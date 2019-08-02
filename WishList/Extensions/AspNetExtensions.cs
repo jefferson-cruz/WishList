@@ -10,7 +10,7 @@ namespace WishList.API.CustomersAndProducts.Extensions
     public static class AspNetExtensions
     {
         /// <summary>
-        /// Popula os bancos de dados da aplicação com dados fictícios
+        /// Populate databases with fictitious data
         /// </summary>
         /// <param name="app"></param>
         public static void DatabaseSeed(this IApplicationBuilder app)
@@ -24,9 +24,8 @@ namespace WishList.API.CustomersAndProducts.Extensions
         }
 
         /// <summary>
-        /// Registra a biblioteca AspNetRateLimit para controlar a quantidade de requisições da API.
-        /// As configurações sobre a quantidade de requisições da API estão no arquivo appsettings.json 
-        /// na seção "IpRateLimiting"
+        /// Registers the AspNet RateLimit library to control the amount of API requests.
+        /// The setting is in the appsettings.json file in the "IpRalteLimiting" section.
         /// </summary>
         /// <param name="services"></param>
         /// <param name="configuration"></param>

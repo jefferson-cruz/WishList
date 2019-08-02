@@ -9,23 +9,23 @@ namespace WishList.Controllers
     {
         public IActionResult CreateResponse(IReadOnlyCollection<Notification> notifications)
         {
-            foreach (var notification in notifications)
-            {
-                switch (notification.Type)
-                {
-                    case NotificationType.Failure:
-                        return StatusCode(StatusCodes.Status500InternalServerError, notification);
+            //foreach (var notification in notifications)
+            //{
+            //    switch (notification.Type)
+            //    {
+            //        case NotificationType.Failure:
+            //            return StatusCode(StatusCodes.Status500InternalServerError, notification);
 
-                    case NotificationType.NotFound:
-                        return StatusCode(StatusCodes.Status404NotFound, notification);
+            //        case NotificationType.NotFound:
+            //            return StatusCode(StatusCodes.Status404NotFound, notification);
 
-                    case NotificationType.Conflict:
-                        return StatusCode(StatusCodes.Status409Conflict, notification);
+            //        case NotificationType.Conflict:
+            //            return StatusCode(StatusCodes.Status409Conflict, notification);
 
-                    case NotificationType.Violation:
-                        return StatusCode(StatusCodes.Status400BadRequest, notification);
-                }
-            }
+            //        case NotificationType.Violation:
+            //            return StatusCode(StatusCodes.Status400BadRequest, notification);
+            //    }
+            //}
 
             throw new System.InvalidOperationException($"Is not possible determinate type of notification in {nameof(notifications)} collection");
         }

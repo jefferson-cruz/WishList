@@ -2,7 +2,7 @@
 {
     public class NotFound : Notification
     {
-        public NotFound(string message) : base(message, NotificationType.NotFound)
+        public NotFound(string message) : base(message)
         {
         }
     }

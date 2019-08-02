@@ -2,7 +2,7 @@
 {
     public class Violation : Notification
     {
-        public Violation(string message) : base(message, NotificationType.Violation)
+        public Violation(string message) : base(message)
         {
         }
     }

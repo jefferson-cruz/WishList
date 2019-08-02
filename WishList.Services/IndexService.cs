@@ -4,6 +4,7 @@ using WishList.Repositories.Index.Interfaces;
 using WishList.Services.Interfaces;
 using WishList.Shared.Exception;
 using WishList.Shared.Notify.Notifications;
+using WishList.Shared.Result;
 
 namespace WishList.Services
 {
@@ -16,7 +17,7 @@ namespace WishList.Services
             this.indexRepository = indexRepository;
         }
 
-        public async Task IndexDocumentAsync(TModel model)
+        public async Task<IResultBase> IndexDocumentAsync(TModel model)
         {
             try
             {
@@ -24,11 +25,13 @@ namespace WishList.Services
             }
             catch (Exception ex)
             {
-                AddNotification<Failure>(ex.GetExceptionMessages());
+                new InternalServerErrorResult(ex.GetExceptionMessages());
             }
+
+            return new OkResult();
         }
 
-        public async Task UpdateDocumentAsync(int id, TModel model)
+        public async Task<IResultBase> UpdateDocumentAsync(int id, TModel model)
         {
             try
             {
@@ -36,8 +39,10 @@ namespace WishList.Services
             }
             catch (Exception ex)
             {
-                AddNotification<Failure>(ex.GetExceptionMessages());
+                new InternalServerErrorResult(ex.GetExceptionMessages());
             }
+
+            return new OkResult();
         }
 
         public async Task DeleteDocumentAsync(int id)
@@ -48,8 +53,10 @@ namespace WishList.Services
             }
             catch (Exception ex)
             {
-                AddNotification<Failure>(ex.GetExceptionMessages());
+                new InternalServerErrorResult(ex.GetExceptionMessages());
             }
+
+            return new OkResult();
         }
     }
 }

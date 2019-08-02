@@ -63,32 +63,6 @@ namespace WishList.Services
             }
         }
 
-        private async Task RollbackInsert(int userId, IEnumerable<WishCreationModel> wishCreationModel)
-        {
-            await this.indexService.DeleteDocumentAsync(userId);
-
-            this.wishRepository.Remove(userId);
-
-            this.unitOfWork.Save();
-        }
-
-        private async Task RollbackUpdate(WishModel wishModel, IEnumerable<WishCreationModel> wishCreationModel)
-        {
-            var wish = await this.wishQueryRepository.GetByUser(wishModel.Id);
-
-            foreach(var wishItem in wishCreationModel)
-            {
-                var toRemove = wish.Products.Find(x => x.Id == wishItem.IdProduct);
-                wish.Products.Remove(toRemove);
-            }
-
-            await this.indexService.UpdateDocumentAsync(wish.Id, wish);
-
-            this.wishRepository.Remove(wishModel.Id, wishCreationModel.Select(x => x.IdProduct));
-
-            this.unitOfWork.Save();
-        }
-
         public async Task Remove(int userId, int productId)
         {
             try
@@ -113,7 +87,7 @@ namespace WishList.Services
 
                 await UpdateOrDeleteWishListInIndexService(wish);
 
-                this.wishRepository.Remove(userId, productId);
+                this.wishRepository.RemoveItem(userId, productId);
 
                 unitOfWork.Save();
             }
@@ -211,9 +185,9 @@ namespace WishList.Services
                 Products = products,
             });
 
-            if (indexService.HasNotifications)
+            if (indexService.HasResults)
             {
-                AddNotifications(indexService.Notifications);
+                AddNotifications(indexService.Results);
 
                 await RollbackInsert(userId, wishCreationModel);
             }
@@ -239,12 +213,38 @@ namespace WishList.Services
 
             await this.indexService.UpdateDocumentAsync(wish.Id, wish);
 
-            if (indexService.HasNotifications)
+            if (indexService.HasResults)
             {
-                AddNotifications(indexService.Notifications);
+                AddNotifications(indexService.Results);
 
                 await RollbackUpdate(wish, wishCreationModel);
             }
+        }
+
+        private async Task RollbackInsert(int userId, IEnumerable<WishCreationModel> wishCreationModel)
+        {
+            await this.indexService.DeleteDocumentAsync(userId);
+
+            this.wishRepository.Remove(userId);
+
+            this.unitOfWork.Save();
+        }
+
+        private async Task RollbackUpdate(WishModel wishModel, IEnumerable<WishCreationModel> wishCreationModel)
+        {
+            var wish = await this.wishQueryRepository.GetByUser(wishModel.Id);
+
+            foreach (var wishItem in wishCreationModel)
+            {
+                var toRemove = wish.Products.Find(x => x.Id == wishItem.IdProduct);
+                wish.Products.Remove(toRemove);
+            }
+
+            await this.indexService.UpdateDocumentAsync(wish.Id, wish);
+
+            this.wishRepository.RemoveItems(wishModel.Id, wishCreationModel.Select(x => x.IdProduct));
+
+            this.unitOfWork.Save();
         }
     }
 }

@@ -8,6 +8,7 @@ using WishList.Services.Interfaces;
 using WishList.Services.Models.User;
 using WishList.Shared.Exception;
 using WishList.Shared.Notify.Notifications;
+using WishList.Shared.Result;
 
 namespace WishList.Services
 {
@@ -30,47 +31,40 @@ namespace WishList.Services
             this.unitOfWork = unitOfWork;
         }
 
-        public async Task<UserModel> Create(UserCreationModel userModel)
+        public async Task<IResultBase> Create(UserCreationModel userModel)
         {
             try
             {
-                if (await userQueryRepository.UserExists(userModel.Email))
-                {
-                    AddNotification<Conflict>($"User already exists with email {userModel.Email}");
-
-                    return null;
-                }
-
                 var user = User.Create(userModel.Name, userModel.Email);
 
-                AddNotifications(user.Notifications);
+                if (user.Failure)
+                    return user.Result;
 
-                if (HasNotification) return null;
+                if (await userQueryRepository.UserExists(userModel.Email))
+                    return new ConflictResult($"User already exists with email {userModel.Email}");
 
-                this.userRepository.Add(user);
+                this.userRepository.Add(user.Value);
 
                 unitOfWork.Save();
 
-                var model = Mapper.Map<UserModel>(user);
+                var model = Mapper.Map<UserModel>(user.Value);
 
                 await indexService.IndexDocumentAsync(model);
 
-                if (indexService.HasNotifications)
+                if (indexService.HasResults)
                 {
-                    AddNotifications(indexService.Notifications);
+                    AddResults(indexService.Results);
 
-                    await Rollback(user);
+                    await Rollback(user.Value);
 
                     return null;
                 }
 
-                return model;
+                return new CreatedResult<UserModel>(model);
             }
             catch (Exception ex)
             {
-                AddNotification<Failure>(ex.GetExceptionMessages());
-
-                return null;
+                return Shared.Result.Results.InternalServerError(ex.GetExceptionMessages());
             }
         }
 

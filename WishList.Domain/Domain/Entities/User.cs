@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using WishList.Shared.Notify;
-using WishList.Shared.Notify.Notifications;
+using WishList.Shared.Result;
 
 namespace WishList.Domain.Entities
 {
-    public class User : Notify
+    public class User
     {
         public int Id { get; private set; }
         public string Name { get; private set; }
@@ -16,50 +15,52 @@ namespace WishList.Domain.Entities
 
         private User(int id, string name, string email)
         {
-            ValidateName(name);
-            ValidateEmail(email);
-
             Id = id;
             Name = name;
             Email = email;
         }
 
-        public static User Create(string name, string email)
+        public static IResultBase<User> Create(string name, string email)
         {
             return Create(0, name, email);
         }
 
-        public static User Create(int id, string name, string email)
+        public static IResultBase<User> Create(int id, string name, string email)
         {
-            return new User(id, name, email);
+            var validateName = ValidateName(name);
+
+            if (validateName.Failure)
+                return validateName;
+
+            var validateEmail = ValidateEmail(email);
+
+            if (validateName.Failure) return validateName;
+
+            return new CreatedResult<User>(new User(id, name, email));
         }
 
-        private void ValidateEmail(string value)
+        private static IResultBase<User> ValidateEmail(string value)
         {
             if (string.IsNullOrEmpty(value?.Trim()))
-            {
-                AddNotification<Violation>("Email Is required");
-
-                return;
-            }
+                return new BadRequestResult<User>("Email Is required");
 
             const string pattern = @"\A(?:[a-zA-Z0-9!#$%&'*+/=?^_`{|}-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?)\Z";
 
             if (!Regex.IsMatch(value, pattern))
-                AddNotification<Violation>("Invalid email");
+                return new BadRequestResult<User>("Invalid Email");
+
+            return new OkResult<User>();
         }
 
-        private void ValidateName(string value)
+        private static IResultBase<User> ValidateName(string value)
         {
             if (string.IsNullOrEmpty(value?.Trim()))
-            {
-                AddNotification<Violation>("Name is required");
-
-                return;
-            }
+                return new BadRequestResult<User>("Name is required");
 
             if (value.Length < 3 && value.Length > 150)
-                AddNotification<Violation>("Name must be 3-150 characters");
+                return new BadRequestResult<User>("Name must be 3-150 characters");
+
+            return new OkResult<User>();
         }
     }
 }

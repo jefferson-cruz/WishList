@@ -2,13 +2,11 @@
 using System.Threading.Tasks;
 using WishList.Repositories.Index.Interfaces;
 using WishList.Services.Interfaces;
-using WishList.Shared.Exception;
-using WishList.Shared.Notify.Notifications;
 using WishList.Shared.Result;
 
 namespace WishList.Services
 {
-    public class IndexService<TModel> : BaseService, IIndexService<TModel> where TModel : class
+    public class IndexService<TModel> : IIndexService<TModel> where TModel : class
     {
         private readonly IIndexRepository<TModel> indexRepository;
 
@@ -17,46 +15,46 @@ namespace WishList.Services
             this.indexRepository = indexRepository;
         }
 
-        public async Task<IResultBase> IndexDocumentAsync(TModel model)
+        public async Task<Result> IndexDocumentAsync(TModel model)
         {
             try
             {
                 await this.indexRepository.IndexDocumentAsync(model);
+
+                return OperationResult.OK();
             }
             catch (Exception ex)
             {
-                new InternalServerErrorResult(ex.GetExceptionMessages());
+                return OperationResult.InternalServerError(ex);
             }
-
-            return new OkResult();
         }
 
-        public async Task<IResultBase> UpdateDocumentAsync(int id, TModel model)
+        public async Task<Result> UpdateDocumentAsync(int id, TModel model)
         {
             try
             {
                 await this.indexRepository.UpdateDocumentAsync(id, model);
+
+                return OperationResult.OK();
             }
             catch (Exception ex)
             {
-                new InternalServerErrorResult(ex.GetExceptionMessages());
+                return OperationResult.InternalServerError(ex);
             }
-
-            return new OkResult();
         }
 
-        public async Task DeleteDocumentAsync(int id)
+        public async Task<Result> DeleteDocumentAsync(int id)
         {
             try
             {
                 await this.indexRepository.DeleteDocumentAsync(id);
+
+                return OperationResult.OK();
             }
             catch (Exception ex)
             {
-                new InternalServerErrorResult(ex.GetExceptionMessages());
+                return OperationResult.InternalServerError(ex);
             }
-
-            return new OkResult();
         }
     }
 }

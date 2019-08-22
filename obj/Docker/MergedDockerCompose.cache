@@ -11,6 +11,12 @@ services:
     - published: 9200
       target: 9200
     restart: always
+  redis:
+    command: redis-server --requirepass Redis2019!
+    image: redis
+    ports:
+    - published: 6379
+      target: 6379
   sqlserver:
     environment:
       ACCEPT_EULA: "Y"

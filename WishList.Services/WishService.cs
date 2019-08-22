@@ -9,13 +9,12 @@ using WishList.Models.Wish;
 using WishList.Repositories.ReadOnly.Interfaces;
 using WishList.Services.Interfaces;
 using WishList.Shared.Exception;
-using WishList.Shared.Notify.Notifications;
+using WishList.Shared.Result;
 
 namespace WishList.Services
 {
-    public class WishService : BaseService, IWishService
+    public class WishService : IWishService
     {
-        
         private readonly IIndexService<WishModel> indexService;
         private readonly IWishRepository wishRepository;
         private readonly IWishQueryRepository wishQueryRepository;
@@ -39,49 +38,42 @@ namespace WishList.Services
             this.unitOfWork = unitOfWork;
         }
 
-        public async Task Save(int userId, IEnumerable<WishCreationModel> wishCreationModel)
+        public async Task<Result<WishModel>> Save(int userId, IEnumerable<WishCreationModel> wishCreationModel)
         {
             try
             {
-                if (await IfUserNonExists(userId) || await IfProductNonExists(wishCreationModel))
-                    return;
+                if (await IfUserNonExists(userId))
+                    return OperationResult.NotFound<WishModel>($"UserId {userId} not found");
+
+                var productsNonExists = await GetProductsWithNonExists(wishCreationModel);
+
+                if (productsNonExists.Any())
+                    return OperationResult.NotFound<WishModel>($"Product(s) {string.Join(", ", productsNonExists)} not found");
 
                 var wish = await this.wishQueryRepository.GetByUser(userId);
 
                 if (wish != null)
-                {
-                    await Update(wish, wishCreationModel);
+                    return await Update(wish, wishCreationModel);
 
-                    return;
-                }
-
-                await Insert(userId, wishCreationModel);
+                return await Insert(userId, wishCreationModel);
             }
             catch (Exception ex)
             {
-                AddNotification<Failure>(ex.GetExceptionMessages());
+                return OperationResult.NotFound<WishModel>(ex.GetExceptionMessages());
             }
         }
 
-        public async Task Remove(int userId, int productId)
+        public async Task<Result> Remove(int userId, int productId)
         {
             try
             {
                 var wish = await this.wishQueryRepository.GetByUser(userId);
 
                 if (wish == null)
-                {
-                    AddNotification<NotFound>($"Not found a wishlist from userId {userId}");
-
-                    return;
-                }
+                    return OperationResult.NotFound($"Not found a wishlist from userId {userId}");
 
                 if (!wish.Products.Select(x => x.Id).Contains(productId))
-                {
-                    AddNotification<NotFound>($"Product not found with id {productId} in wishlist");
-
-                    return;
-                }
+                    return OperationResult.NotFound($"Product not found with id {productId} in wishlist");
 
                 wish.Products.Remove(wish.Products.Find(x => x.Id == productId));
 
@@ -90,10 +82,12 @@ namespace WishList.Services
                 this.wishRepository.RemoveItem(userId, productId);
 
                 unitOfWork.Save();
+
+                return OperationResult.OK();
             }
             catch (Exception ex)
             {
-                AddNotification<Failure>(ex.GetExceptionMessages());
+                return OperationResult.InternalServerError(ex.GetExceptionMessages());
             }
         }
 
@@ -102,12 +96,12 @@ namespace WishList.Services
         /// </summary>
         /// <param name="wish"></param>
         /// <returns></returns>
-        private async Task UpdateOrDeleteWishListInIndexService(WishModel wish)
+        private async Task<Result> UpdateOrDeleteWishListInIndexService(WishModel wish)
         {
-            if (!wish.Products.Any())
-                await this.indexService.DeleteDocumentAsync(wish.Id);
-            else
-                await this.indexService.UpdateDocumentAsync(wish.Id, wish);
+            if (wish.Products.Any())
+                return await this.indexService.UpdateDocumentAsync(wish.Id, wish);
+
+            return await this.indexService.DeleteDocumentAsync(wish.Id);
         }
 
         /// <summary>
@@ -117,13 +111,7 @@ namespace WishList.Services
         /// <returns></returns>
         private async Task<bool> IfUserNonExists(int userId)
         {
-            if (!await this.userQueryRepository.UserExists(userId))
-            {
-                AddNotification<NotFound>($"User not found with id {userId}");
-                return true;
-            }
-
-            return false;
+            return !await this.userQueryRepository.UserExists(userId);
         }
 
         /// <summary>
@@ -131,21 +119,15 @@ namespace WishList.Services
         /// </summary>
         /// <param name="wishCreationModel"></param>
         /// <returns></returns>
-        private async Task<bool> IfProductNonExists(IEnumerable<WishCreationModel> wishCreationModel)
+        private async Task<int[]> GetProductsWithNonExists(IEnumerable<WishCreationModel> wishCreationModel)
         {
-            var exists = false;
+            var nonExists = new List<int>();
 
             foreach (var wishItem in wishCreationModel)
-            {
                 if (!await this.productQueryRepository.ProductExists(wishItem.IdProduct))
-                {
-                    AddNotification<NotFound>($"Product not found with id {wishItem.IdProduct}");
+                    nonExists.Add(wishItem.IdProduct);
 
-                    exists = true;
-                }
-            }
-
-            return exists;
+            return nonExists.ToArray();
         }
 
         /// <summary>
@@ -154,23 +136,20 @@ namespace WishList.Services
         /// <param name="wish"></param>
         /// <param name="newWishListItems"></param>
         /// <returns></returns>
-        private bool IfWishItemsExistsInWishList(WishModel wish, IEnumerable<int> newWishListItems)
+        private Result IfWishItemsExistsInWishList(WishModel wish, IEnumerable<int> newWishListItems)
         {
             var itemsAlreadyExists = wish.Products.Select(x => x.Id).Intersect(newWishListItems);
 
             if (itemsAlreadyExists.Any())
-            {
-                AddNotification<Conflict>($"The product(s) {string.Join(",", itemsAlreadyExists)} already exist in user {wish.Id} wishlist");
-                return true;
-            }
+                return OperationResult.Conflict($"The product(s) {string.Join(",", itemsAlreadyExists)} already exist in user {wish.Id} wishlist");
 
-            return false;
+            return OperationResult.OK();
         }
 
-        private async Task Insert(int userId, IEnumerable<WishCreationModel> wishCreationModel)
+        private async Task<Result<WishModel>> Insert(int userId, IEnumerable<WishCreationModel> wishCreationModel)
         {
             foreach (var wishItem in wishCreationModel)
-                this.wishRepository.Add(Wish.Create(userId, wishItem.IdProduct));
+                this.wishRepository.Add(Wish.Create(userId, wishItem.IdProduct).Value);
 
             unitOfWork.Save();
 
@@ -179,28 +158,35 @@ namespace WishList.Services
             foreach (var i in wishCreationModel)
                 products.Add(await this.productQueryRepository.GetById(i.IdProduct));
 
-            await this.indexService.IndexDocumentAsync(new WishModel
+            var model = new WishModel
             {
                 Id = userId,
                 Products = products,
-            });
+            };
 
-            if (indexService.HasResults)
+            var indexResult = await this.indexService.IndexDocumentAsync(model);
+
+            if (indexResult.Failure)
             {
-                AddNotifications(indexService.Results);
-
                 await RollbackInsert(userId, wishCreationModel);
+
+                return OperationResult.InternalServerError<WishModel>(indexResult);
             }
+
+            return OperationResult.Created(model);
         }
 
-        private async Task Update(WishModel wish, IEnumerable<WishCreationModel> wishCreationModel)
+        private async Task<Result<WishModel>> Update(WishModel wish, IEnumerable<WishCreationModel> wishCreationModel)
         {
             var productsIds = wishCreationModel.Select(x => x.IdProduct);
 
-            if (IfWishItemsExistsInWishList(wish, productsIds)) return;
+            var existsItemsResult = IfWishItemsExistsInWishList(wish, productsIds);
+
+            if (existsItemsResult.Failure)
+                return OperationResult.NotFound<WishModel>(existsItemsResult);
 
             foreach (var wishItem in productsIds)
-                this.wishRepository.Add(Wish.Create(wish.Id, wishItem));
+                this.wishRepository.Add(Wish.Create(wish.Id, wishItem).Value);
 
             unitOfWork.Save();
 
@@ -211,14 +197,16 @@ namespace WishList.Services
 
             wish.Products.AddRange(products);
 
-            await this.indexService.UpdateDocumentAsync(wish.Id, wish);
+            var indexResult = await this.indexService.UpdateDocumentAsync(wish.Id, wish);
 
-            if (indexService.HasResults)
+            if (indexResult.Failure)
             {
-                AddNotifications(indexService.Results);
-
                 await RollbackUpdate(wish, wishCreationModel);
+
+                return OperationResult.InternalServerError<WishModel>(indexResult);
             }
+
+            return OperationResult.NoContent<WishModel>();
         }
 
         private async Task RollbackInsert(int userId, IEnumerable<WishCreationModel> wishCreationModel)

@@ -3,14 +3,14 @@ using WishList.Shared.Result;
 
 namespace WishList.Services.Interfaces
 {
-    public interface IIndexService<TModel> : IBaseService where TModel : class
+    public interface IIndexService<TModel> where TModel : class
     {
         /// <summary>
         /// Index a document
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        Task<IResultBase> IndexDocumentAsync(TModel model);
+        Task<Result> IndexDocumentAsync(TModel model);
 
         /// <summary>
         /// Update a document
@@ -18,13 +18,13 @@ namespace WishList.Services.Interfaces
         /// <param name="id"></param>
         /// <param name="model"></param>
         /// <returns></returns>
-        Task UpdateDocumentAsync(int id, TModel model);
+        Task<Result> UpdateDocumentAsync(int id, TModel model);
 
         /// <summary>
         /// Delete a document
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task DeleteDocumentAsync(int id);
+        Task<Result> DeleteDocumentAsync(int id);
     }
 }

@@ -33,10 +33,22 @@ namespace WishList.API.CustomersAndProducts.Extensions
         {
             services.Configure<IpRateLimitOptions>(configuration.GetSection("IpRateLimiting"));
             services.Configure<IpRateLimitPolicies>(configuration.GetSection("IpRateLimitPolicies"));
-            services.AddSingleton<IIpPolicyStore, MemoryCacheIpPolicyStore>();
-            services.AddSingleton<IRateLimitCounterStore, MemoryCacheRateLimitCounterStore>();
+
+            services.AddSingleton<IIpPolicyStore, DistributedCacheIpPolicyStore>();
+            services.AddSingleton<IRateLimitCounterStore, DistributedCacheRateLimitCounterStore>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+
+            var provider = services.BuildServiceProvider();
+
+            using (var scope = provider.CreateScope())
+            {
+                // get the IpPolicyStore instance
+                var ipPolicyStore = scope.ServiceProvider.GetRequiredService<IIpPolicyStore>();
+                
+                // seed IP data from appsettings
+                ipPolicyStore.SeedAsync().Wait();
+            }
         }
     }
 }

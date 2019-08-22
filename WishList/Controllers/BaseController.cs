@@ -1,33 +1,51 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using WishList.Shared.Notify.Notifications;
+using WishList.Shared.Result;
 
 namespace WishList.Controllers
 {
     public class BaseController : Controller
     {
-        public IActionResult CreateResponse(IReadOnlyCollection<Notification> notifications)
+        public IActionResult CreateErrorResponse(Result operationResult)
         {
-            //foreach (var notification in notifications)
-            //{
-            //    switch (notification.Type)
-            //    {
-            //        case NotificationType.Failure:
-            //            return StatusCode(StatusCodes.Status500InternalServerError, notification);
+            switch (operationResult.Type)
+            {
+                case OperationResultType.InternalServerError:
+                    return StatusCode(StatusCodes.Status500InternalServerError, operationResult);
 
-            //        case NotificationType.NotFound:
-            //            return StatusCode(StatusCodes.Status404NotFound, notification);
+                case OperationResultType.Conflict:
+                    return StatusCode(StatusCodes.Status409Conflict, operationResult);
 
-            //        case NotificationType.Conflict:
-            //            return StatusCode(StatusCodes.Status409Conflict, notification);
+                case OperationResultType.NotFound:
+                    return StatusCode(StatusCodes.Status404NotFound, operationResult);
 
-            //        case NotificationType.Violation:
-            //            return StatusCode(StatusCodes.Status400BadRequest, notification);
-            //    }
-            //}
+                case OperationResultType.BadRequest:
+                    return StatusCode(StatusCodes.Status400BadRequest, operationResult);
 
-            throw new System.InvalidOperationException($"Is not possible determinate type of notification in {nameof(notifications)} collection");
+                default:
+                    throw new System.Exception("OperationResult type not indentified");
+            }
+        }
+
+        public IActionResult CreateErrorResponse<T>(Result<T> operationResult)
+        {
+            switch (operationResult.Type)
+            {
+                case OperationResultType.InternalServerError:
+                    return StatusCode(StatusCodes.Status500InternalServerError, operationResult);
+
+                case OperationResultType.Conflict:
+                    return StatusCode(StatusCodes.Status409Conflict, operationResult);
+
+                case OperationResultType.NotFound:
+                    return StatusCode(StatusCodes.Status404NotFound, operationResult);
+
+                case OperationResultType.BadRequest:
+                    return StatusCode(StatusCodes.Status400BadRequest, operationResult);
+
+                default:
+                    throw new System.Exception("OperationResult type not indentified");
+            }
         }
     }
 }

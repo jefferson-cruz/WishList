@@ -26,9 +26,13 @@ namespace WishList
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddOptions();
+            services.AddDistributedRedisCache(setup =>
+            {
+                setup.Configuration = Configuration.GetConnectionString("Redis");
+                setup.InstanceName = "master";
+            });
 
-            services.AddMemoryCache();
+            services.AddOptions();
 
             services.AddRateLimit(this.Configuration);
 
@@ -56,6 +60,8 @@ namespace WishList
                 app.UseHsts();
             }
 
+            app.UseIpRateLimiting();
+
             app.UseExceptionHandler(appBuilder =>
             {
                 appBuilder.Run(async context =>
@@ -64,8 +70,6 @@ namespace WishList
                     await context.Response.WriteAsync("An unexpected fault happend. Try again later");
                 });
             });
-
-            app.UseIpRateLimiting();
 
             app.UseResponseCompression();
 

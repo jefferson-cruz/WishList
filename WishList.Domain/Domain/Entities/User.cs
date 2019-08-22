@@ -20,47 +20,44 @@ namespace WishList.Domain.Entities
             Email = email;
         }
 
-        public static IResultBase<User> Create(string name, string email)
+        public static Result<User> Create(string name, string email)
         {
             return Create(0, name, email);
         }
 
-        public static IResultBase<User> Create(int id, string name, string email)
+        public static Result<User> Create(int id, string name, string email)
         {
             var validateName = ValidateName(name);
-
-            if (validateName.Failure)
-                return validateName;
-
-            var validateEmail = ValidateEmail(email);
-
             if (validateName.Failure) return validateName;
 
-            return new CreatedResult<User>(new User(id, name, email));
+            var validateEmail = ValidateEmail(email);
+            if (validateName.Failure) return validateName;
+
+            return OperationResult.Created(new User(id, name, email));
         }
 
-        private static IResultBase<User> ValidateEmail(string value)
+        private static Result<User> ValidateEmail(string value)
         {
             if (string.IsNullOrEmpty(value?.Trim()))
-                return new BadRequestResult<User>("Email Is required");
+                return OperationResult.BadRequest<User>("Email Is required");
 
             const string pattern = @"\A(?:[a-zA-Z0-9!#$%&'*+/=?^_`{|}-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?)\Z";
 
             if (!Regex.IsMatch(value, pattern))
-                return new BadRequestResult<User>("Invalid Email");
+                return OperationResult.BadRequest<User>("Invalid Email");
 
-            return new OkResult<User>();
+            return OperationResult.OK<User>();
         }
 
-        private static IResultBase<User> ValidateName(string value)
+        private static Result<User> ValidateName(string value)
         {
             if (string.IsNullOrEmpty(value?.Trim()))
-                return new BadRequestResult<User>("Name is required");
+                return OperationResult.BadRequest<User>("Name is required");
 
             if (value.Length < 3 && value.Length > 150)
-                return new BadRequestResult<User>("Name must be 3-150 characters");
+                return OperationResult.BadRequest<User>("Name must be 3-150 characters");
 
-            return new OkResult<User>();
+            return OperationResult.OK<User>();
         }
     }
 }

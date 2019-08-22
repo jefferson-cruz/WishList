@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using WishList.Controllers;
-using WishList.Extensions;
 using WishList.Models.Wish;
 using WishList.Repositories.ReadOnly.Interfaces;
 using WishList.Services.Interfaces;
@@ -37,10 +36,10 @@ namespace WishList.API.CustomersAndProducts.Controllers
             if (wishCreationModel == null)
                 return BadRequest();
 
-            await this.wishService.Save(userId, wishCreationModel);
+            var operationResult = await this.wishService.Save(userId, wishCreationModel);
 
-            if (wishService.HasResults)
-                return CreateResponse(wishService.Results);
+            if (operationResult.Failure)
+                return CreateErrorResponse(operationResult);
 
             return CreatedAtAction(nameof(List), new { userId }, null);
         }
@@ -48,10 +47,10 @@ namespace WishList.API.CustomersAndProducts.Controllers
         [HttpDelete("{productId}")]
         public async Task<IActionResult> Delete(int userId, int productId)
         {
-            await this.wishService.Remove(userId, productId);
+            var operationResult = await this.wishService.Remove(userId, productId);
 
-            if (wishService.HasResults)
-                return this.ToResult(wishService.Results);
+            if (operationResult.Failure)
+                return CreateErrorResponse(operationResult);
 
             return Ok();
         }

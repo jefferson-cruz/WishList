@@ -1,10 +1,11 @@
 ﻿using System.Threading.Tasks;
 using WishList.Models.Product;
+using WishList.Shared.Result;
 
 namespace WishList.Services.Interfaces
 {
-    public interface IProductService : IBaseService 
+    public interface IProductService 
     {
-        Task<ProductModel> Create(ProductCreationModel productModel);
+        Task<Result<ProductModel>> Create(ProductCreationModel productModel);
     }
 }

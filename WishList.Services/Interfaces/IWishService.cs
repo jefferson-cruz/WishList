@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using WishList.Models.Wish;
+using WishList.Shared.Result;
 
 namespace WishList.Services.Interfaces
 {
-    public interface IWishService : IBaseService
+    public interface IWishService 
     {
-        Task Save(int userId, IEnumerable<WishCreationModel> wishCreationModel);
-        Task Remove(int userId, int productId);
+        Task<Result<WishModel>> Save(int userId, IEnumerable<WishCreationModel> wishCreationModel);
+        Task<Result> Remove(int userId, int productId);
     }
 }

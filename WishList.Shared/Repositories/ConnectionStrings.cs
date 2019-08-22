@@ -7,6 +7,7 @@ namespace WishList.Shared.Repositories
     public enum ConnectionStrings
     {
         WishList,
-        WishListIndex
+        WishListIndex,
+        Redis
     }
 }

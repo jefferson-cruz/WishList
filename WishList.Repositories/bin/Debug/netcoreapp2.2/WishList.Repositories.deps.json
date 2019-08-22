@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "bc3c6e82ba791699e010583b29ac34116410d6ba"
+    "signature": "accfa8c2ecda05760d109988f8bb5faf15eac68f"
   },
   "compilationOptions": {},
   "targets": {
@@ -229,6 +229,14 @@
           "lib/netstandard2.0/Nest.dll": {
             "assemblyVersion": "7.0.0.0",
             "fileVersion": "7.1.0.0"
+          }
+        }
+      },
+      "Newtonsoft.Json/12.0.2": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.2.23222"
           }
         }
       },
@@ -537,6 +545,9 @@
         }
       },
       "WishList.Shared/1.0.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.2"
+        },
         "runtime": {
           "WishList.Shared.dll": {}
         }
@@ -681,6 +692,13 @@
       "sha512": "sha512-/Ij6XS5SnTeeZudTHypO8IlopiMZmyeljim7fz02UxwQPZ7duSmuw/bZu+ixKgXSWXGDH0thkdawv/81RZZKdA==",
       "path": "nest/7.1.0",
       "hashPath": "nest.7.1.0.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
+      "path": "newtonsoft.json/12.0.2",
+      "hashPath": "newtonsoft.json.12.0.2.nupkg.sha512"
     },
     "Remotion.Linq/2.2.0": {
       "type": "package",

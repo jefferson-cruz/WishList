@@ -43,12 +43,12 @@ namespace WishList.API.CustomersAndProducts.Controllers
             if (productModel == null)
                 return BadRequest();
 
-            var model = await this.productService.Create(productModel);
+            var operationResult = await this.productService.Create(productModel);
 
-            if (productService.HasResults)
-                return CreateResponse(productService.Results);
-                        
-            return CreatedAtAction(nameof(Get), new { id = model.Id }, model);
+            if (operationResult.Failure)
+                return CreateErrorResponse(operationResult);
+
+            return CreatedAtAction(nameof(Get), new { id = operationResult.Value.Id }, operationResult);
         }
     }
 }

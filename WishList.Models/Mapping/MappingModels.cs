@@ -5,7 +5,7 @@ using WishList.Services.Models.User;
 
 namespace WishList.Mapping.Models
 {
-    public class MappingModels
+    public static class MappingModels
     {
         public static void Initialize(IMapperConfigurationExpression cfg)
         {
@@ -16,6 +16,11 @@ namespace WishList.Mapping.Models
 
             cfg.CreateMap<Product, ProductModel>()
                 .ForMember(x => x.Name, x => x.MapFrom(src => src.Name));
+        }
+
+        public static TDestination Map<TDestination>(this object source)
+        {
+            return Mapper.Map<TDestination>(source);
         }
     }
 }

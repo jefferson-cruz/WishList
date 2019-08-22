@@ -6,12 +6,11 @@ using WishList.Domain.Repositories;
 using WishList.Models.Product;
 using WishList.Repositories.ReadOnly.Interfaces;
 using WishList.Services.Interfaces;
-using WishList.Shared.Exception;
-using WishList.Shared.Notify.Notifications;
+using WishList.Shared.Result;
 
 namespace WishList.Services
 {
-    public class ProductService : BaseService, IProductService
+    public class ProductService : IProductService
     {
         private readonly IIndexService<ProductModel> indexService;
         private readonly IProductRepository productRepository;
@@ -30,47 +29,37 @@ namespace WishList.Services
             this.unitOfWork = unitOfWork;
         }
 
-        public async Task<ProductModel> Create(ProductCreationModel productModel)
+        public async Task<Result<ProductModel>> Create(ProductCreationModel productModel)
         {
             try
             {
+                var productResult = Product.Create(productModel.Name);
+
+                if (productResult.Failure) return OperationResult.BadRequest<ProductModel>(productResult);
+
                 if (await this.productQueryRepository.ProductExists(productModel.Name))
-                {
-                    AddNotification<Conflict>("Product already exists");
+                    return OperationResult.NotFound<ProductModel>("Product already exists");
 
-                    return null;
-                }
-
-                var product = Product.Create(productModel.Name);
-
-                AddResutls(product.Results);
-
-                if (HasResults) return null;
-
-                this.productRepository.Add(product);
+                this.productRepository.Add(productResult.Value);
 
                 unitOfWork.Save();
 
-                var model = Mapper.Map<ProductModel>(product);
+                var model = Mapper.Map<ProductModel>(productResult.Value);
 
-                await indexService.IndexDocumentAsync(model);
+                var indexResult = await indexService.IndexDocumentAsync(model);
 
-                if (indexService.HasResults)
+                if (indexResult.Failure)
                 {
-                    AddNotifications(indexService.Results);
+                    await Rollback(productResult.Value);
 
-                    await Rollback(product);
-
-                    return null;
+                    return OperationResult.InternalServerError<ProductModel>(indexResult);
                 }
 
-                return model;
+                return OperationResult.Created(model);
             }
             catch (Exception ex)
             {
-                AddNotification<Failure>(ex.GetExceptionMessages());
-
-                return null;
+                return OperationResult.InternalServerError<ProductModel>(ex);
             }
         }
 

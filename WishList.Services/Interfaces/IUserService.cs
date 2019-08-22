@@ -4,8 +4,8 @@ using WishList.Shared.Result;
 
 namespace WishList.Services.Interfaces
 {
-    public interface IUserService : IBaseService
+    public interface IUserService 
     {
-        Task<IResultBase> Create(UserCreationModel userModel);
+        Task<Result<UserModel>> Create(UserCreationModel userModel);
     }
 }

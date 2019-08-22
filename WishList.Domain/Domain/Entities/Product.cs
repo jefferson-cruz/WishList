@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
-using WishList.Shared.Notify;
-using WishList.Shared.Notify.Notifications;
+using WishList.Shared.Result;
 
 namespace WishList.Domain.Entities
 {
-    public class Product : Notify
+    public class Product
     {
         public int Id { get; private set; }
         public string Name { get; private set; }
@@ -14,33 +13,25 @@ namespace WishList.Domain.Entities
 
         private Product(int id, string name)
         {
-            ValidateName(name);
-
             Id = id;
             Name = name;
         }
 
-        public static Product Create(string name)
+        public static Result<Product> Create(string name)
         {
             return Create(0, name);
         }
 
-        public static Product Create(int id, string name)
+        public static Result<Product> Create(int id, string name)
         {
-            return new Product(id, name);
+            if (string.IsNullOrEmpty(name?.Trim()))
+                return OperationResult.BadRequest<Product>("Name is required");
+
+            if (name.Length < 3 && name.Length > 150)
+                return OperationResult.BadRequest<Product>("Name must be 3-150 characters");
+
+            return OperationResult.OK(new Product(id, name));
         }
 
-        private void ValidateName(string value)
-        {
-            if (string.IsNullOrEmpty(value?.Trim()))
-            {
-                AddNotification<Violation>("Name is required");
-
-                return;
-            }
-
-            if (value.Length < 3 && value.Length > 150)
-                AddNotification<Violation>("Name must be 3-150 characters");
-        }
     }
 }

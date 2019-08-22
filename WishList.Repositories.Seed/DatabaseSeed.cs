@@ -32,15 +32,15 @@ namespace WishList.Repositories.Seed
             wishListContext.Products.RemoveRange(wishListContext.Products);
 
             wishListContext.Users.AddRange(
-                User.Create("Rodrigo Carvalho", "rodrigo@emailteste.com"),
-                User.Create("Marcel Grilo", "marcel.grilo@emailteste.com"),
-                User.Create("Alexandre Faria", "alexandre@emailteste.com")
+                User.Create("Rodrigo Carvalho", "rodrigo@emailteste.com").Value,
+                User.Create("Marcel Grilo", "marcel.grilo@emailteste.com").Value,
+                User.Create("Alexandre Faria", "alexandre@emailteste.com").Value
             );
 
             wishListContext.Products.AddRange(
-                Product.Create("Batedeira"),
-                Product.Create("Vídeo Cassete"),
-                Product.Create("Toca Fitas")
+                Product.Create("Batedeira").Value,
+                Product.Create("Vídeo Cassete").Value,
+                Product.Create("Toca Fitas").Value
             );
 
             wishListContext.SaveChanges();

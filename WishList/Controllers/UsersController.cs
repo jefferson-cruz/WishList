@@ -43,12 +43,12 @@ namespace WishList.API.CustomersAndProducts.Controllers
             if (customer == null)
                 return BadRequest();
 
-            var model = await  this.userService.Create(customer);
+            var createdResult = await this.userService.Create(customer);
 
-            if (this.userService.HasResults)
-                return CreateResponse(userService.Results);
+            if (createdResult.Failure)
+                return CreateErrorResponse(createdResult);
 
-            return CreatedAtAction(nameof(Get), new { id = model.Id }, null);
+            return CreatedAtAction(nameof(Get), new { id = createdResult.Value.Id }, null);
         }
     }
 }

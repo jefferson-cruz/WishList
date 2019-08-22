@@ -7,12 +7,11 @@ using WishList.Repositories.ReadOnly.Interfaces;
 using WishList.Services.Interfaces;
 using WishList.Services.Models.User;
 using WishList.Shared.Exception;
-using WishList.Shared.Notify.Notifications;
 using WishList.Shared.Result;
 
 namespace WishList.Services
 {
-    public class UserService : BaseService, IUserService
+    public class UserService : IUserService
     {
         private readonly IUserRepository userRepository;
         private readonly IUserQueryRepository userQueryRepository;
@@ -31,40 +30,37 @@ namespace WishList.Services
             this.unitOfWork = unitOfWork;
         }
 
-        public async Task<IResultBase> Create(UserCreationModel userModel)
+        public async Task<Result<UserModel>> Create(UserCreationModel userModel)
         {
             try
             {
-                var user = User.Create(userModel.Name, userModel.Email);
+                var userResult = User.Create(userModel.Name, userModel.Email);
 
-                if (user.Failure)
-                    return user.Result;
+                if (userResult.Failure) return OperationResult.BadRequest<UserModel>(userResult);
 
                 if (await userQueryRepository.UserExists(userModel.Email))
-                    return new ConflictResult($"User already exists with email {userModel.Email}");
+                    return OperationResult.Conflict<UserModel>($"User already exists with email {userModel.Email}");
 
-                this.userRepository.Add(user.Value);
+                this.userRepository.Add(userResult.Value);
 
                 unitOfWork.Save();
 
-                var model = Mapper.Map<UserModel>(user.Value);
+                var model = Mapper.Map<UserModel>(userResult.Value);
 
-                await indexService.IndexDocumentAsync(model);
+                var indexResult = await indexService.IndexDocumentAsync(model);
 
-                if (indexService.HasResults)
+                if (indexResult.Failure)
                 {
-                    AddResults(indexService.Results);
+                    await Rollback(userResult.Value);
 
-                    await Rollback(user.Value);
-
-                    return null;
+                    return OperationResult.InternalServerError<UserModel>(indexResult);
                 }
 
-                return new CreatedResult<UserModel>(model);
+                return OperationResult.Created<UserModel>(model);
             }
             catch (Exception ex)
             {
-                return Shared.Result.Results.InternalServerError(ex.GetExceptionMessages());
+                return OperationResult.InternalServerError<UserModel>(ex.GetExceptionMessages());
             }
         }
 

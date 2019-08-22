@@ -1,9 +1,8 @@
-﻿using WishList.Shared.Notify;
-using WishList.Shared.Notify.Notifications;
+﻿using WishList.Shared.Result;
 
 namespace WishList.Domain.Entities
 {
-    public class Wish : Notify
+    public class Wish 
     {
         public int UserId { get; set; }
         public User User { get; set; }
@@ -14,24 +13,28 @@ namespace WishList.Domain.Entities
 
         private Wish(int userId, int productId)
         {
-            Validate(userId, productId);
-
             UserId = userId;
             ProductId = productId;
         }
 
-        public static Wish Create(int userId, int productId)
+        public static Result<Wish> Create(int userId, int productId)
         {
-            return new Wish(userId, productId);
+            var validateResult = Validate(userId, productId);
+
+            if (validateResult.Failure) return validateResult;
+
+            return OperationResult.Created(new Wish(userId, productId));
         }
 
-        private void Validate(int userId, int productId)
+        private static Result<Wish> Validate(int userId, int productId)
         {
             if (userId < 1)
-                AddNotification<Violation>("UserId must be greater than zero");
+                return OperationResult.BadRequest<Wish>("UserId must be greater than zero");
 
             if (productId < 1)
-                AddNotification<Violation>("ProductId must be greater than zero");
+                return OperationResult.BadRequest<Wish>("ProductId must be greater than zero");
+
+            return OperationResult.OK<Wish>();
         }
     }
 }

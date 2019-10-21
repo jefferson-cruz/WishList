@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace WishList
 {
@@ -11,8 +11,14 @@ namespace WishList
             CreateWebHostBuilder(args).Build().Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args)
+        {
+            return WebHost.CreateDefaultBuilder(args)
+                          .ConfigureAppConfiguration((context, config) =>
+                          {
+                                config.AddEnvironmentVariables();
+                          })
+                          .UseStartup<Startup>();
+        }
     }
 }

@@ -38,3 +38,17 @@ C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.Repositories\obj\Releas
 C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.Repositories\obj\Release\netcoreapp2.2\WishList.Repositories.csproj.CopyComplete
 C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.Repositories\obj\Release\netcoreapp2.2\WishList.Repositories.dll
 C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.Repositories\obj\Release\netcoreapp2.2\WishList.Repositories.pdb
+C:\Users\jfcruz\Desktop\WishList\WishList.Repositories\bin\Release\netcoreapp2.2\WishList.Repositories.deps.json
+C:\Users\jfcruz\Desktop\WishList\WishList.Repositories\bin\Release\netcoreapp2.2\WishList.Repositories.dll
+C:\Users\jfcruz\Desktop\WishList\WishList.Repositories\bin\Release\netcoreapp2.2\WishList.Repositories.pdb
+C:\Users\jfcruz\Desktop\WishList\WishList.Repositories\bin\Release\netcoreapp2.2\WishList.Domain.dll
+C:\Users\jfcruz\Desktop\WishList\WishList.Repositories\bin\Release\netcoreapp2.2\WishList.Shared.dll
+C:\Users\jfcruz\Desktop\WishList\WishList.Repositories\bin\Release\netcoreapp2.2\WishList.Domain.pdb
+C:\Users\jfcruz\Desktop\WishList\WishList.Repositories\bin\Release\netcoreapp2.2\WishList.Shared.pdb
+C:\Users\jfcruz\Desktop\WishList\WishList.Repositories\obj\Release\netcoreapp2.2\WishList.Repositories.csprojAssemblyReference.cache
+C:\Users\jfcruz\Desktop\WishList\WishList.Repositories\obj\Release\netcoreapp2.2\WishList.Repositories.csproj.CoreCompileInputs.cache
+C:\Users\jfcruz\Desktop\WishList\WishList.Repositories\obj\Release\netcoreapp2.2\WishList.Repositories.AssemblyInfoInputs.cache
+C:\Users\jfcruz\Desktop\WishList\WishList.Repositories\obj\Release\netcoreapp2.2\WishList.Repositories.AssemblyInfo.cs
+C:\Users\jfcruz\Desktop\WishList\WishList.Repositories\obj\Release\netcoreapp2.2\WishList.Repositories.csproj.CopyComplete
+C:\Users\jfcruz\Desktop\WishList\WishList.Repositories\obj\Release\netcoreapp2.2\WishList.Repositories.dll
+C:\Users\jfcruz\Desktop\WishList\WishList.Repositories\obj\Release\netcoreapp2.2\WishList.Repositories.pdb

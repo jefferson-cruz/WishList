@@ -34,3 +34,12 @@ C:\Users\jfcruz\Desktop\Projetos\WishList\WishList.Shared\obj\Debug\netcoreapp2.
 C:\Users\jfcruz\Desktop\Projetos\WishList\WishList.Shared\obj\Debug\netcoreapp2.2\WishList.Shared.csproj.CopyComplete
 C:\Users\jfcruz\Desktop\Projetos\WishList\WishList.Shared\obj\Debug\netcoreapp2.2\WishList.Shared.dll
 C:\Users\jfcruz\Desktop\Projetos\WishList\WishList.Shared\obj\Debug\netcoreapp2.2\WishList.Shared.pdb
+C:\Users\jfcruz\Desktop\WishList\WishList.Shared\bin\Debug\netcoreapp2.2\WishList.Shared.deps.json
+C:\Users\jfcruz\Desktop\WishList\WishList.Shared\bin\Debug\netcoreapp2.2\WishList.Shared.dll
+C:\Users\jfcruz\Desktop\WishList\WishList.Shared\bin\Debug\netcoreapp2.2\WishList.Shared.pdb
+C:\Users\jfcruz\Desktop\WishList\WishList.Shared\obj\Debug\netcoreapp2.2\WishList.Shared.csproj.CoreCompileInputs.cache
+C:\Users\jfcruz\Desktop\WishList\WishList.Shared\obj\Debug\netcoreapp2.2\WishList.Shared.AssemblyInfoInputs.cache
+C:\Users\jfcruz\Desktop\WishList\WishList.Shared\obj\Debug\netcoreapp2.2\WishList.Shared.AssemblyInfo.cs
+C:\Users\jfcruz\Desktop\WishList\WishList.Shared\obj\Debug\netcoreapp2.2\WishList.Shared.dll
+C:\Users\jfcruz\Desktop\WishList\WishList.Shared\obj\Debug\netcoreapp2.2\WishList.Shared.pdb
+C:\Users\jfcruz\Desktop\WishList\WishList.Shared\obj\Debug\netcoreapp2.2\WishList.Shared.csprojAssemblyReference.cache

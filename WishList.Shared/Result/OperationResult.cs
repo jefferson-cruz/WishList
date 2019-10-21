@@ -10,7 +10,6 @@ namespace WishList.Shared.Result
         public static Result<T> OK<T>(T value) => new Result<T>(true, value, OperationResultType.OK);
 
         public static Result Created() => new Result(true, OperationResultType.Created);
-        public static Result<T> Created<T>() => new Result<T>(true, OperationResultType.Created);
         public static Result<T> Created<T>(T value) => new Result<T>(true, value, OperationResultType.Created);
 
         public static Result NoContent() => new Result(true, OperationResultType.NoContent);

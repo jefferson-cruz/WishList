@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using WishList.Domain.Repositories;
 using WishList.Repositories.Context;
 using WishList.Repositories.Index;
@@ -16,13 +17,14 @@ namespace WishList.Repositories.IoC
         public static IServiceCollection AddRepositories(this IServiceCollection services, ConnectionStringManager connectionStringManager)
         {
             #region Contexts
-            services.AddEntityFrameworkSqlServer().AddDbContext<WishListContext>(options =>
+            services.AddDbContext<WishListContext>(options =>
             {
-                options.UseSqlServer(connectionStringManager.ConnectionStrings[ConnectionStrings.WishList]);
+                //options.UseSqlServer(connectionStringManager.ConnectionStrings[ConnectionStrings.WishList]);
+                options.UseSqlServer(Environment.GetEnvironmentVariable("DB_CONNECTION_STRING"));
 
             }, ServiceLifetime.Scoped);
 
-            services.AddSingleton(new IndexContext(connectionStringManager.ConnectionStrings[ConnectionStrings.WishListIndex]));
+            services.AddSingleton(new IndexContext(Environment.GetEnvironmentVariable("ELASTIC_SEARCH_CONNECTION_STRING")));
             #endregion
 
             services.AddTransient<IUserRepository, UserRepository>();

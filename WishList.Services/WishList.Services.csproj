@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -9,12 +9,14 @@
     <ProjectReference Include="..\WishList.Models\WishList.Models.csproj" />
     <ProjectReference Include="..\WishList.Repositories.Indexer\WishList.Repositories.Index.csproj" />
     <ProjectReference Include="..\WishList.Repositories.ReadOnly\WishList.Repositories.ReadOnly.csproj" />
+    <ProjectReference Include="..\WishList.Repositories\WishList.Repositories.csproj" />
     <ProjectReference Include="..\WishList.Shared\WishList.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
       <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.dependencyinjection.abstractions\2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <Private>true</Private>
     </Reference>
   </ItemGroup>
 

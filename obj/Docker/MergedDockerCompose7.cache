@@ -1,0 +1,61 @@
+networks:
+  api: {}
+  elasticsearch: {}
+  redis: {}
+  sqlserver: {}
+services:
+  wishlist.api:
+    build:
+      context: C:\Users\jfcruz\Desktop\WishList
+      dockerfile: ./WishList/Dockerfile
+    depends_on:
+    - wishlist.elasticsearch
+    - wishlist.redis
+    - wishlist.sqlserver
+    environment:
+      DB_CONNECTION_STRING: Server=wishlist.sqlserver;Database=WishList;User=sa;Password=Docker@Password!123
+      ELASTIC_SEARCH_CONNECTION_STRING: http://wishlist.elasticsearch:9200
+      REDIS_CONNECTION_STRING: wishlist.redis, password=Redis2019!, resolveDns=true,
+        connectTimeout=2000, allowAdmin=true, connectRetry=10, abortConnect=false
+    networks:
+      api: null
+      elasticsearch: null
+      redis: null
+      sqlserver: null
+    ports:
+    - published: 15000
+      target: 80
+    restart: always
+  wishlist.elasticsearch:
+    environment:
+      discovery.type: single-node
+      http.cors.allow-credentials: "true"
+      http.cors.allow-headers: X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization
+      http.cors.allow-origin: '*'
+      http.cors.enabled: "true"
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.2.0
+    networks:
+      elasticsearch: null
+    ports:
+    - published: 9200
+      target: 9200
+    restart: always
+  wishlist.redis:
+    command: redis-server --requirepass Redis2019!
+    image: redis
+    networks:
+      redis: null
+    ports:
+    - published: 6379
+      target: 6379
+  wishlist.sqlserver:
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: Docker@Password!123
+    image: microsoft/mssql-server-linux:2017-latest
+    networks:
+      sqlserver: null
+    ports:
+    - published: 1433
+      target: 1433
+version: '3.4'

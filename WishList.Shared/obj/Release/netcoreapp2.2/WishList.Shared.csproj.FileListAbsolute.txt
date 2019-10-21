@@ -22,3 +22,12 @@ C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.Shared\obj\Release\netc
 C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.Shared\obj\Release\netcoreapp2.2\WishList.Shared.dll
 C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.Shared\obj\Release\netcoreapp2.2\WishList.Shared.pdb
 C:\Users\jfcruz\source\repos\LuisaLabs\WishList\WishList.Shared\obj\Release\netcoreapp2.2\WishList.Shared.csprojAssemblyReference.cache
+C:\Users\jfcruz\Desktop\WishList\WishList.Shared\bin\Release\netcoreapp2.2\WishList.Shared.deps.json
+C:\Users\jfcruz\Desktop\WishList\WishList.Shared\bin\Release\netcoreapp2.2\WishList.Shared.dll
+C:\Users\jfcruz\Desktop\WishList\WishList.Shared\bin\Release\netcoreapp2.2\WishList.Shared.pdb
+C:\Users\jfcruz\Desktop\WishList\WishList.Shared\obj\Release\netcoreapp2.2\WishList.Shared.csprojAssemblyReference.cache
+C:\Users\jfcruz\Desktop\WishList\WishList.Shared\obj\Release\netcoreapp2.2\WishList.Shared.csproj.CoreCompileInputs.cache
+C:\Users\jfcruz\Desktop\WishList\WishList.Shared\obj\Release\netcoreapp2.2\WishList.Shared.AssemblyInfoInputs.cache
+C:\Users\jfcruz\Desktop\WishList\WishList.Shared\obj\Release\netcoreapp2.2\WishList.Shared.AssemblyInfo.cs
+C:\Users\jfcruz\Desktop\WishList\WishList.Shared\obj\Release\netcoreapp2.2\WishList.Shared.dll
+C:\Users\jfcruz\Desktop\WishList\WishList.Shared\obj\Release\netcoreapp2.2\WishList.Shared.pdb

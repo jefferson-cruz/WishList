@@ -1,5 +1,22 @@
 services:
-  elasticsearch:
+  wishlist.api:
+    build:
+      context: C:\Users\jfcruz\Desktop\WishList
+      dockerfile: ./WishList/Dockerfile
+    depends_on:
+    - wishlist.elasticsearch
+    - wishlist.redis
+    - wishlist.sqlserver
+    environment:
+      DB_CONNECTION_STRING: Server=wishlist.sqlserver;Database=WishList;User=sa;Password=Docker@Password!123
+      ELASTIC_SEARCH_CONNECTION_STRING: http://wishlist.elasticsearch
+      REDIS_CONNECTION_STRING: wishlist.redis, password=Redis2019!, resolveDns=true,
+        connectTimeout=2000, allowAdmin=true, connectRetry=10, abortConnect=false
+    ports:
+    - published: 15000
+      target: 80
+    restart: always
+  wishlist.elasticsearch:
     environment:
       discovery.type: single-node
       http.cors.allow-credentials: "true"
@@ -11,18 +28,18 @@ services:
     - published: 9200
       target: 9200
     restart: always
-  redis:
+  wishlist.redis:
     command: redis-server --requirepass Redis2019!
     image: redis
     ports:
     - published: 6379
       target: 6379
-  sqlserver:
+  wishlist.sqlserver:
     environment:
       ACCEPT_EULA: "Y"
       SA_PASSWORD: Docker@Password!123
     image: microsoft/mssql-server-linux:2017-latest
     ports:
-    - published: 11433
+    - published: 1433
       target: 1433
 version: '3.4'

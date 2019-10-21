@@ -1,0 +1,62 @@
+services:
+  wishlist.api:
+    build:
+      context: C:\Users\jfcruz\Desktop\WishList
+      dockerfile: ./WishList/Dockerfile
+      target: base
+    depends_on:
+    - wishlist.elasticsearch
+    - wishlist.redis
+    - wishlist.sqlserver
+    entrypoint: tail -f /dev/null
+    environment:
+      DB_CONNECTION_STRING: Server=wishlist.sqlserver;Database=WishList;User=sa;Password=Docker@Password!123
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      ELASTIC_SEARCH_CONNECTION_STRING: http://wishlist.elasticsearch:9200
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+      REDIS_CONNECTION_STRING: wishlist.redis, password=Redis2019!, resolveDns=true,
+        connectTimeout=2000, allowAdmin=true, connectRetry=10, abortConnect=false
+    image: wishlistapi:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  bin/Debug/netcoreapp2.2/WishList.dll'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/bash -c "if PID=$$(pidof
+        -x dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - published: 15000
+      target: 80
+    restart: always
+    volumes:
+    - C:\Users\jfcruz\Desktop\WishList\WishList:/app:rw
+    - C:\Users\jfcruz\vsdbg\vs2017u5:/remote_debugger:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\jfcruz\.nuget\packages:/root/.nuget/packages:ro
+  wishlist.elasticsearch:
+    environment:
+      discovery.type: single-node
+      http.cors.allow-credentials: "true"
+      http.cors.allow-headers: X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization
+      http.cors.allow-origin: '*'
+      http.cors.enabled: "true"
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.2.0
+    ports:
+    - published: 9200
+      target: 9200
+    restart: always
+  wishlist.redis:
+    command: redis-server --requirepass Redis2019!
+    image: redis
+    ports:
+    - published: 6379
+      target: 6379
+  wishlist.sqlserver:
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: Docker@Password!123
+    image: microsoft/mssql-server-linux:2017-latest
+    ports:
+    - published: 1433
+      target: 1433
+version: '3.4'

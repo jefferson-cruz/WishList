@@ -11,6 +11,7 @@ using WishList.Mapping.Models;
 using AspNetCoreRateLimit;
 using Microsoft.AspNetCore.Http;
 using WishList.Shared.Repositories;
+using System;
 
 namespace WishList
 {
@@ -28,8 +29,7 @@ namespace WishList
         {
             services.AddDistributedRedisCache(setup =>
             {
-                setup.Configuration = Configuration.GetConnectionString("Redis");
-                setup.InstanceName = "master";
+                setup.Configuration = Environment.GetEnvironmentVariable("REDIS_CONNECTION_STRING");
             });
 
             services.AddOptions();
@@ -49,10 +49,11 @@ namespace WishList
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.DatabaseSeed();
+
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
-                app.DatabaseSeed();
+                app.UseDeveloperExceptionPage();    
             }
             else
             {

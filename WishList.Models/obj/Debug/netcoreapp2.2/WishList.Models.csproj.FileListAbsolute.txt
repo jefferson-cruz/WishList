@@ -46,3 +46,17 @@ C:\Users\jfcruz\Desktop\Projetos\WishList\WishList.Models\obj\Debug\netcoreapp2.
 C:\Users\jfcruz\Desktop\Projetos\WishList\WishList.Models\obj\Debug\netcoreapp2.2\WishList.Models.csproj.CopyComplete
 C:\Users\jfcruz\Desktop\Projetos\WishList\WishList.Models\obj\Debug\netcoreapp2.2\WishList.Models.dll
 C:\Users\jfcruz\Desktop\Projetos\WishList\WishList.Models\obj\Debug\netcoreapp2.2\WishList.Models.pdb
+C:\Users\jfcruz\Desktop\WishList\WishList.Models\bin\Debug\netcoreapp2.2\WishList.Models.deps.json
+C:\Users\jfcruz\Desktop\WishList\WishList.Models\bin\Debug\netcoreapp2.2\WishList.Models.dll
+C:\Users\jfcruz\Desktop\WishList\WishList.Models\bin\Debug\netcoreapp2.2\WishList.Models.pdb
+C:\Users\jfcruz\Desktop\WishList\WishList.Models\bin\Debug\netcoreapp2.2\WishList.Domain.dll
+C:\Users\jfcruz\Desktop\WishList\WishList.Models\bin\Debug\netcoreapp2.2\WishList.Shared.dll
+C:\Users\jfcruz\Desktop\WishList\WishList.Models\bin\Debug\netcoreapp2.2\WishList.Domain.pdb
+C:\Users\jfcruz\Desktop\WishList\WishList.Models\bin\Debug\netcoreapp2.2\WishList.Shared.pdb
+C:\Users\jfcruz\Desktop\WishList\WishList.Models\obj\Debug\netcoreapp2.2\WishList.Models.csprojAssemblyReference.cache
+C:\Users\jfcruz\Desktop\WishList\WishList.Models\obj\Debug\netcoreapp2.2\WishList.Models.csproj.CoreCompileInputs.cache
+C:\Users\jfcruz\Desktop\WishList\WishList.Models\obj\Debug\netcoreapp2.2\WishList.Models.AssemblyInfoInputs.cache
+C:\Users\jfcruz\Desktop\WishList\WishList.Models\obj\Debug\netcoreapp2.2\WishList.Models.AssemblyInfo.cs
+C:\Users\jfcruz\Desktop\WishList\WishList.Models\obj\Debug\netcoreapp2.2\WishList.Models.csproj.CopyComplete
+C:\Users\jfcruz\Desktop\WishList\WishList.Models\obj\Debug\netcoreapp2.2\WishList.Models.dll
+C:\Users\jfcruz\Desktop\WishList\WishList.Models\obj\Debug\netcoreapp2.2\WishList.Models.pdb

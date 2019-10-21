@@ -6,20 +6,18 @@ Tecnologias utilizadas:
  - .NET Core 2.2
  - SQL Server 2017 Linux
  - ElasticSearch 7.2.0
+ - Redis
  - AspNetCoreRateLimit (Nuget)
  - Docker Compose
 
-## Instalação
-
-Para facilitar, você pode pode rodar o comando ```docker-compose``` do Docker para subir o SQL Server e o ElasticSearch. Caso você não tenha o Docker, instale os componentes separadamente e no arquivo ```appsettings.json``` edite as ```ConnectionStrings``` WishList e WishListIndex (SQL Server e ElasticSearch respectivamente)
-
-```bash
-docker-compose up
-```
-
 ## Uso
 
-Execute o projeto WishList no Visual Studio ou Visual Studio Code. E utilize o Postman ou outro parecido para interagir com a API.
+Rode o comando ```docker-compose up``` para que os containers fiquem online e a aplicação funcione. Para parar a execução dos containers execute o comando ```docker-compose down```. Se quiser listar os containers disponíveis, execute o comando ```docker-compose ps```. Se quiser ver o log de execução dos containers, execute o comando ```docker-compose logs -f -t```
+
+Defina o arquivo docker-compose no Visual Studio como principal e execute debugando. No VS Code é necessário instalar a extenção do Docker e configurar o ambiente para executar o debugger.
+
+Abra no Postman ou semelhante e digite o endereço base:
+http://localhost:15000/api/
 
 A aplicação possui os seguintes endpoints:
 - api/users: [GET|POST]

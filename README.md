@@ -7,7 +7,7 @@ Tecnologias utilizadas:
  - SQL Server 2017 Linux
  - ElasticSearch 7.2.0
  - AspNetCoreRateLimit (Nuget)
- - Docker
+ - Docker Compose
 
 ## Instalação
 

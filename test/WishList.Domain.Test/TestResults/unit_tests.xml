@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="ca9ea6d1-77c5-49be-b771-b3ff7334aafd" name="jfcruz@SP01PC469 2019-10-22 10:42:01" runUser="MERCADOCAR\jfcruz" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2019-10-22T10:42:01.1131315-03:00" queuing="2019-10-22T10:42:01.1131315-03:00" start="2019-10-22T10:42:00.1082136-03:00" finish="2019-10-22T10:42:01.1270022-03:00" />
+  <TestSettings name="default" id="90807eb6-924b-4264-a5b8-dad28c508f4b">
+    <Deployment runDeploymentRoot="jfcruz_SP01PC469_2019-10-22_10_42_01" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="9bddab39-50f2-4aef-9893-27d78395845e" testId="031813b4-5837-fa4f-9dcc-9eed09e9756b" testName="Test1" computerName="SP01PC469" duration="00:00:00.0120000" startTime="2019-10-22T10:42:00.0000000-03:00" endTime="2019-10-22T10:42:00.0000000-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9bddab39-50f2-4aef-9893-27d78395845e" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Test1" storage="c:\users\jfcruz\desktop\wishlist\test\wishlist.domain.test\bin\debug\netcoreapp2.2\wishlist.domain.test.dll" id="031813b4-5837-fa4f-9dcc-9eed09e9756b">
+      <Execution id="9bddab39-50f2-4aef-9893-27d78395845e" />
+      <TestMethod codeBase="C:\Users\jfcruz\Desktop\WishList\test\WishList.Domain.Test\bin\Debug\netcoreapp2.2\WishList.Domain.Test.dll" adapterTypeName="executor://nunit3testexecutor/" className="Tests.UnitTest.Product" name="Test1" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="031813b4-5837-fa4f-9dcc-9eed09e9756b" executionId="9bddab39-50f2-4aef-9893-27d78395845e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>NUnit Adapter 3.11.0.0: Test execution started&#xD;
+Running all tests in C:\Users\jfcruz\Desktop\WishList\test\WishList.Domain.Test\bin\Debug\netcoreapp2.2\WishList.Domain.Test.dll&#xD;
+   NUnit3TestExecutor converted 1 of 1 NUnit test cases&#xD;
+NUnit Adapter 3.11.0.0: Test execution complete&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

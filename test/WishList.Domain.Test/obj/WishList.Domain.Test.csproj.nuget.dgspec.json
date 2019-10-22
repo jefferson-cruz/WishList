@@ -1,0 +1,205 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\jfcruz\\Desktop\\WishList\\test\\WishList.Domain.Test\\WishList.Domain.Test.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\jfcruz\\Desktop\\WishList\\test\\WishList.Domain.Test\\WishList.Domain.Test.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\jfcruz\\Desktop\\WishList\\test\\WishList.Domain.Test\\WishList.Domain.Test.csproj",
+        "projectName": "WishList.Domain.Test",
+        "projectPath": "C:\\Users\\jfcruz\\Desktop\\WishList\\test\\WishList.Domain.Test\\WishList.Domain.Test.csproj",
+        "packagesPath": "C:\\Users\\jfcruz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jfcruz\\Desktop\\WishList\\test\\WishList.Domain.Test\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\jfcruz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://sp01sv081/NugetServerMercadoCar/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "C:\\Users\\jfcruz\\Desktop\\WishList\\WishList.Domain\\WishList.Domain.csproj": {
+                "projectPath": "C:\\Users\\jfcruz\\Desktop\\WishList\\WishList.Domain\\WishList.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[15.9.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[3.11.0, )"
+            },
+            "ReportGenerator": {
+              "target": "Package",
+              "version": "[4.3.2, )"
+            },
+            "coverlet.msbuild": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.7.0, )"
+            },
+            "nunit": {
+              "target": "Package",
+              "version": "[3.11.0, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Users\\jfcruz\\Desktop\\WishList\\WishList.Domain\\WishList.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\jfcruz\\Desktop\\WishList\\WishList.Domain\\WishList.Domain.csproj",
+        "projectName": "WishList.Domain",
+        "projectPath": "C:\\Users\\jfcruz\\Desktop\\WishList\\WishList.Domain\\WishList.Domain.csproj",
+        "packagesPath": "C:\\Users\\jfcruz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jfcruz\\Desktop\\WishList\\WishList.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\jfcruz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://sp01sv081/NugetServerMercadoCar/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "C:\\Users\\jfcruz\\Desktop\\WishList\\WishList.Shared\\WishList.Shared.csproj": {
+                "projectPath": "C:\\Users\\jfcruz\\Desktop\\WishList\\WishList.Shared\\WishList.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Users\\jfcruz\\Desktop\\WishList\\WishList.Shared\\WishList.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\jfcruz\\Desktop\\WishList\\WishList.Shared\\WishList.Shared.csproj",
+        "projectName": "WishList.Shared",
+        "projectPath": "C:\\Users\\jfcruz\\Desktop\\WishList\\WishList.Shared\\WishList.Shared.csproj",
+        "packagesPath": "C:\\Users\\jfcruz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jfcruz\\Desktop\\WishList\\WishList.Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\jfcruz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://sp01sv081/NugetServerMercadoCar/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.2, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

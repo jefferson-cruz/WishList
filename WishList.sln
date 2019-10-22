@@ -39,6 +39,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WishList.Repositories.Seed"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{9206BFD1-95E5-4ADB-8DB8-B2135FC76B60}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WishList.Domain.Test", "test\WishList.Domain.Test\WishList.Domain.Test.csproj", "{7180D975-B0F6-4830-9985-2B7327BA6C14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{9206BFD1-95E5-4ADB-8DB8-B2135FC76B60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9206BFD1-95E5-4ADB-8DB8-B2135FC76B60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9206BFD1-95E5-4ADB-8DB8-B2135FC76B60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7180D975-B0F6-4830-9985-2B7327BA6C14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7180D975-B0F6-4830-9985-2B7327BA6C14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7180D975-B0F6-4830-9985-2B7327BA6C14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7180D975-B0F6-4830-9985-2B7327BA6C14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -109,6 +115,7 @@ Global
 		{40B6DCB6-CB3F-4C9C-9CFE-87A35C0461D4} = {6E095C43-57E0-45DA-AA93-30B72305B4E3}
 		{B342516F-E0D6-450A-A197-0F77B888A4AC} = {AE63FC3C-966C-4FE5-96BA-AE49CD39E569}
 		{47BD1D28-0C88-427F-BCB6-695DCD064232} = {AE63FC3C-966C-4FE5-96BA-AE49CD39E569}
+		{7180D975-B0F6-4830-9985-2B7327BA6C14} = {1DFB7EBE-A987-4227-8849-D10BE65CDCDD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2EA8D993-32FC-4FAA-9165-C3BDADCC83C7}

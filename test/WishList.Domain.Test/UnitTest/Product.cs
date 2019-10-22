@@ -11,5 +11,13 @@ namespace Tests.UnitTest
 
             Assert.IsTrue(product.Success);
         }
+
+        [Test]
+        public void Test2()
+        {
+            var product = WishList.Domain.Entities.Product.Create(-1,"ssss");
+
+            Assert.IsTrue(product.Success);
+        }
     }
 }

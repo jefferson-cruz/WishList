@@ -24,6 +24,9 @@ namespace WishList.Domain.Entities
 
         public static Result<Product> Create(int id, string name)
         {
+            if (id < 0)
+                return OperationResult.BadRequest<Product>("Id is required");
+
             if (string.IsNullOrEmpty(name?.Trim()))
                 return OperationResult.BadRequest<Product>("Name is required");
 
